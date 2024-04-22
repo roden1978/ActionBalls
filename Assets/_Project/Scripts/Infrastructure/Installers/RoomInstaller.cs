@@ -29,7 +29,7 @@ public class RoomInstaller : MonoInstaller
         _persistenceProgress = persistentProgress;
         _wallet = wallet;
 
-        _levelStaticData = _staticDataService.GetLevelStaticData(AssetPaths.RoomSceneName.ToString());
+        //_levelStaticData = _staticDataService.GetLevelStaticData(AssetPaths.RoomSceneName.ToString());
         _saveLoadStorage.ClearAll();
     }
 

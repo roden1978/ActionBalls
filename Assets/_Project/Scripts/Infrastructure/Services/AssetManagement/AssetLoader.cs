@@ -27,17 +27,6 @@ namespace Infrastructure.AssetManagement
             
             LoadPrefabs(AssetPaths.UILabel);
             LoadPrefab(typeof(ProgressUpdater), AssetPaths.ProgressUpdater);
-
-            LoadPrefab(typeof(MealDrawer), AssetPaths.MealDrawerPath);
-            LoadPrefab(typeof(BackpackDrawer), AssetPaths.BackpackPath);
-            LoadPrefab(typeof(Egg), AssetPaths.EggPath);
-            LoadPrefab(typeof(Player), AssetPaths.PlayerPath);
-            LoadPrefab(typeof(Snowman), AssetPaths.SnowmanPath);
-            LoadPrefab(typeof(TrayView), AssetPaths.TrayPath);
-            LoadPrefab(typeof(Poop), AssetPaths.PoopPath);
-            LoadPrefab(typeof(ClothsDrawer), AssetPaths.ClothsDrawerPath);
-            LoadPrefab(typeof(Carpet), AssetPaths.CarpetPath);
-            LoadPrefab(typeof(ToysDrawer), AssetPaths.ToysDrawerPath);
         }
 
 

@@ -30,7 +30,7 @@ public class WinterRoomInstaller : MonoInstaller
         _persistenceProgress = persistentProgress;
         _wallet = wallet;
 
-        _levelStaticData = _staticDataService.GetLevelStaticData(AssetPaths.WinterRoomSceneName.ToString());
+        //_levelStaticData = _staticDataService.GetLevelStaticData(AssetPaths.WinterRoomSceneName.ToString());
         _saveLoadStorage.ClearAll();
     }
 

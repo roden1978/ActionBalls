@@ -2,12 +2,9 @@
 {
     public enum PooledObjectTypes
     {
-        Platform,
-        Gold,
-        Obstacle,
-        Extender,
-        Decelerator,
-        Magnet,
-        Shield
+        Coin = 0,
+        Bomb = 1,
+        Toxic = 2,
+        BlackHole = 3,
     }
 }

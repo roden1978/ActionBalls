@@ -60,23 +60,23 @@ namespace PlayerScripts
 
             string currentSceneName = SceneManager.GetActiveScene().name;
 
-            if (currentSceneName == AssetPaths.RoomSceneName.ToString())
+            /*if (currentSceneName == AssetPaths.RoomSceneName.ToString())
             {
                 Position = playerProgress.PlayerState.Position.Vector3DataToVector3();
                 Rotation = playerProgress.PlayerState.Rotation.QuaternionDataToQuaternion();
-            }
+            }*/
         }
 
         public void SaveProgress(PlayerProgress playerProgress)
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
+            /*string currentSceneName = SceneManager.GetActiveScene().name;
 
             if (currentSceneName == AssetPaths.RoomSceneName.ToString())
             {
                 playerProgress.PlayerState.State = _state;
                 playerProgress.PlayerState.Position = transform.position.Vector3ToVector3Data();
                 playerProgress.PlayerState.Rotation = transform.rotation.QuaternionToQuaternionData();
-            }
+            }*/
         }
 
         public event Action<State> ChangePlayerState;

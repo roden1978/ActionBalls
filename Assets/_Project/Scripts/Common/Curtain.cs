@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Cysharp.Threading.Tasks;
 using Infrastructure;
+using Infrastructure.AssetManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,14 +11,12 @@ public class Curtain : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _fader;
     [SerializeField] private Image _slider;
-    private IPersistentProgress _progress;
     private float _count;
     private ISceneLoader _sceneLoader;
 
     [Inject]
-    public void Construct(IPersistentProgress progress, ISceneLoader sceneLoader)
+    public void Construct(ISceneLoader sceneLoader)
     {
-        _progress = progress;
         _sceneLoader = sceneLoader;
     }
 
@@ -36,7 +35,7 @@ public class Curtain : MonoBehaviour
             yield return null;
         }
 
-        var result = _sceneLoader.LoadScene(_progress.PlayerProgress.PlayerState.SceneName);
+        var result = _sceneLoader.LoadScene(AssetPaths.MainMenuSceneName);
         while (result.Status != UniTaskStatus.Succeeded)
             yield return null;
     }

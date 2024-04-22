@@ -2,9 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UI;
 using System.Collections.Generic;
-using System.Linq;
 using CustomEventBus.Signals;
-using Infrastructure.AssetManagement;
 using StaticData;
 using TMPro;
 using UnityEngine.EventSystems;
@@ -13,6 +11,7 @@ using Zenject;
 
 public class ShopDialog : Dialog
 {
+    [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PointerListener _exitButton;
     [SerializeField] private GridLayoutGroup _elementsGrid;
     [SerializeField] private ShopSlot _slotPrefab;
@@ -103,7 +102,7 @@ public class ShopDialog : Dialog
     
     private bool ConfirmCarrot(Item item)
     {
-        var a = item.StuffSpecies is StuffSpecies.Decor;
+        /*var a = item.StuffSpecies is StuffSpecies.Decor;
         var b = _inventory.HasItem(item.Type);
         if (a && !b)
         {
@@ -113,14 +112,14 @@ public class ShopDialog : Dialog
                 return true;
 
             return room.SnowmanDecor.Type != ItemType.Carrot;
-        }
+        }*/
 
         return false;
     }
 
     private bool ConfirmBall(Item item)
     {
-        var a = item.StuffSpecies is StuffSpecies.Toys;
+        /*var a = item.StuffSpecies is StuffSpecies.Toys;
         var b = _inventory.HasItem(item.Type);
         if (a && !b)
         {
@@ -130,7 +129,7 @@ public class ShopDialog : Dialog
                 return true;
 
             return !room.Ball;
-        }
+        }*/
 
         return false;
     }
@@ -160,7 +159,16 @@ public class ShopDialog : Dialog
         _slots.Clear();
     }
 
-    private void Exit(PointerEventData obj) => Hide();
+    private void Exit(PointerEventData obj)
+    {
+        Hide();
+        ShowMainMenu();   
+    }
+    
+    private void ShowMainMenu()
+    {
+        _mainMenu.gameObject.SetActive(true);
+    }
 
     private void UpdateSlots(long amount)
     {

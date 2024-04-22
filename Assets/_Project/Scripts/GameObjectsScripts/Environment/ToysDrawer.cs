@@ -48,7 +48,7 @@ public class ToysDrawer : ItemDrawer, ISavedProgress
 
     public async void LoadProgress(PlayerProgress playerProgress)
     {
-        AnchorPointTransform = _anchorPointTransform;
+        /*AnchorPointTransform = _anchorPointTransform;
 
         RoomState roomState = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
             x.Name == AssetPaths.RoomSceneName.ToString());
@@ -66,12 +66,12 @@ public class ToysDrawer : ItemDrawer, ISavedProgress
         }
 
         if (roomState.ToysDrawer)
-            DrawerSetActive(true);
+            DrawerSetActive(true);*/
     }
 
     public void SaveProgress(PlayerProgress playerProgress)
     {
-        RoomState room = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
+        /*RoomState room = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
             x.Name == AssetPaths.RoomSceneName.ToString());
         if (room is null)
             playerProgress.RoomsData.Rooms.Add(new RoomState
@@ -85,6 +85,7 @@ public class ToysDrawer : ItemDrawer, ISavedProgress
             room.Ball = _isFull;
             room.ToysDrawer = _isDrawerEnabled;
         }
+        */
             
     }
 

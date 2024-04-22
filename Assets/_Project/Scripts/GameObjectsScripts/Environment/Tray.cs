@@ -22,18 +22,18 @@ public class Tray : ISavedProgress, IInitializable
 
     public void LoadProgress(PlayerProgress playerProgress)
     {
-        RoomState room =
+        /*RoomState room =
             playerProgress.RoomsData.Rooms.FirstOrDefault(x => x.Name == AssetPaths.RoomSceneName.ToString());
 
         if (room is not null)
         {
             FillTray(room.Poop);
-        }
+        }*/
     }
 
     public void SaveProgress(PlayerProgress playerProgress)
     {
-        RoomState room = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
+        /*RoomState room = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
             x.Name == AssetPaths.RoomSceneName.ToString());
         if (room is not null)
             room.Poop = _isFull;
@@ -42,7 +42,7 @@ public class Tray : ISavedProgress, IInitializable
             {
                 Poop = _isFull,
                 Name = AssetPaths.RoomSceneName.ToString()
-            });
+            });*/
     }
 
     public void Initialize()

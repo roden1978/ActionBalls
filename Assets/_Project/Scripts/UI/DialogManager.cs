@@ -19,15 +19,18 @@ namespace UI
         // При создании новых окон добавлять их сюда
         private readonly Dictionary<Type, string> PrefabsDictionary = new()
         {
+            { typeof(MenuDialog), AssetPaths.MenuDialog },
+            { typeof(GameOverDialog), AssetPaths.GameOverDialog },
+        };
+        
+        /*
             { typeof(ShopDialog), AssetPaths.ShopDialog },
             { typeof(MealInventoryDialog), AssetPaths.MealInventoryDialog },
             { typeof(ClothsInventoryDialog), AssetPaths.ClothsInventoryDialog },
             { typeof(BackpackInventoryDialog), AssetPaths.BackpackInventoryDialog },
             { typeof(ToysInventoryDialog), AssetPaths.ToysInventoryDialog },
             { typeof(InputNameDialog), AssetPaths.InputNameDialog },
-            { typeof(MenuDialog), AssetPaths.MenuDialog },
-            { typeof(GameOverDialog), AssetPaths.GameOverDialog },
-        };
+         */
 
         public T ShowDialog<T>() where T : Dialog
         {

@@ -19,14 +19,14 @@ namespace Services.StaticData
         public async void LoadEnvironmentObjectStaticData()
         {
             IList<EnvironmentObjectStaticData> result =
-                await _assetProvider.LoadAllAsync<EnvironmentObjectStaticData>(AssetPaths.EnvironmentStaticDataLabel);
+                await _assetProvider.LoadAllAsync<EnvironmentObjectStaticData>(AssetPaths.EmptyPath); //AssetPaths.EnvironmentStaticDataLabel
              _environmentObjectsStaticData = result.ToDictionary(x => x.GameObjectsTypeId, x => x);
         }
 
         public async void LoadLevelStaticData()
         {
             IList<LevelStaticData> result =
-                await _assetProvider.LoadAllAsync<LevelStaticData>(AssetPaths.SceneStaticDataLabel);
+                await _assetProvider.LoadAllAsync<LevelStaticData>(AssetPaths.EmptyPath); //AssetPaths.SceneStaticDataLabel
              _scenesStaticData = result.ToDictionary(x => x.LevelKey, x => x);
         }
 

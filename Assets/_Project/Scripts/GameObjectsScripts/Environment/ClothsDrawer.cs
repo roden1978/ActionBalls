@@ -21,7 +21,7 @@ public class ClothsDrawer : ItemDrawer, ISavedProgress
 
     public async void LoadProgress(PlayerProgress playerProgress)
     {
-        AnchorPointTransform = _anchorPointTransform;
+        /*AnchorPointTransform = _anchorPointTransform;
         string currentRoomName = SceneManager.GetActiveScene().name;
         if (currentRoomName == AssetPaths.RoomSceneName.ToString())
         {
@@ -38,12 +38,12 @@ public class ClothsDrawer : ItemDrawer, ISavedProgress
                 Stuff stuff = await InstantiateItem(clothName);
                 stuff.AddLastStack(this);
             }
-        }
+        }*/
     }
 
     public void SaveProgress(PlayerProgress playerProgress)
     {
-        string currentRoomName = SceneManager.GetActiveScene().name;
+        /*string currentRoomName = SceneManager.GetActiveScene().name;
         if (currentRoomName == AssetPaths.RoomSceneName.ToString())
         {
             RoomState room = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
@@ -66,7 +66,7 @@ public class ClothsDrawer : ItemDrawer, ISavedProgress
                     },
                     Name = currentRoomName
                 });
-        }
+        }*/
     }
 
     public override void Stack(Stuff stuff)

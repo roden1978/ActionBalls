@@ -228,15 +228,8 @@ MonoBehaviour:
   _canvas: {fileID: 1509303595137913118}
   _exitButton: {fileID: 4154103019989341754}
   _elementsGrid: {fileID: 7489700673469908600}
-  _slotPrefab: {fileID: 8668840892349284661, guid: a9b89b54017a8f547aabd38ecdccec60,
-    type: 3}
-  _items:
-  - {fileID: 11400000, guid: 4037ba57824857f4e94f0211faf451a3, type: 2}
-  - {fileID: 11400000, guid: cda987cfdcbfb16459e26551f33cfab7, type: 2}
-  - {fileID: 11400000, guid: ce1f6ed8a06801e438928a5ba96fc6b7, type: 2}
-  - {fileID: 11400000, guid: dcd3eeb2b09c91b4da35b2448b1287d7, type: 2}
-  - {fileID: 11400000, guid: 509064154ec1e624aaf12d6200be6793, type: 2}
-  - {fileID: 11400000, guid: 4b854e36fcc14844788d502f25eae14c, type: 2}
+  _slotPrefab: {fileID: 8668840892349284661, guid: a9b89b54017a8f547aabd38ecdccec60, type: 3}
+  _items: []
   _gold: {fileID: 1327352437004467163}
 --- !u!1 &4868040980540176724
 GameObject:
@@ -825,7 +818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3982531476621197747
 RectTransform:
   m_ObjectHideFlags: 0

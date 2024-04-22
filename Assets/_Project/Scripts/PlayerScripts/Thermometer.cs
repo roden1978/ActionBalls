@@ -42,7 +42,7 @@ namespace PlayerScripts
 
         private void UpdateThermometerState(bool value)
         {
-            _timer ??= _timersPrincipal.GetTimerByType(TimerType.Thermo);
+            /*_timer ??= _timersPrincipal.GetTimerByType(TimerType.Thermo);
             RoomsType type = Enum.Parse<RoomsType>(_roomName);
             switch (type)
             {
@@ -67,7 +67,7 @@ namespace PlayerScripts
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
-            }
+            }*/
         }
 
         private void RestartTimer()
@@ -83,7 +83,7 @@ namespace PlayerScripts
 
         private void BackToRoom()
         {
-            _sceneLoader.LoadScene(AssetPaths.RoomSceneName.ToString());
+            //_sceneLoader.LoadScene(AssetPaths.RoomSceneName.ToString());
         }
 
         private void OnDisable()

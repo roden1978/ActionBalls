@@ -19,10 +19,10 @@ namespace Infrastructure.AssetManagement
 
         public void Initialize()
         {
-            LoadStaticData();
+            /*LoadStaticData();
 
             LoadSettings();
-            LoadPlayerProgress();
+            LoadPlayerProgress();*/
         }
 
         private void LoadStaticData()
@@ -56,7 +56,7 @@ namespace Infrastructure.AssetManagement
             {
                 PlayerState =
                 {
-                    SceneName = AssetPaths.RoomSceneName.ToString()
+                    SceneName = AssetPaths.GameSceneName
                 }
             };
 

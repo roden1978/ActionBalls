@@ -19,7 +19,6 @@ public class ServicesInstaller : MonoInstaller
         BindPoolService();
         BindEventBus();
         BindWallet();
-        //BindAssetLoader();
     }
 
     private void BindAssetProvider()
@@ -70,5 +69,15 @@ public class ServicesInstaller : MonoInstaller
     private void BindWallet()
     {
         Container.BindInterfacesAndSelfTo<WalletService>().AsSingle();
+    }
+
+    private void BindAds()
+    {
+        
+    }
+
+    private void BindAnalytics()
+    {
+        
     }
 }
