@@ -12,12 +12,12 @@ using UnityEngine.SceneManagement;
 using Zenject;
 
 public class Hud : MonoBehaviour, ISavedProgress
-{
+{/*
     [SerializeField] private PointerListener _shop;
     [SerializeField] private PointerListener _winterRoom;
     [SerializeField] private PointerListener _room;
     [SerializeField] private PointerListener _ads;
-    [SerializeField] private PointerListener _menu;
+    [SerializeField] private PointerListener _menu;*/
     [SerializeField] private TMP_Text _petName;
     [SerializeField] private TMP_Text _currencyValueText;
     [SerializeField] private CanvasGroup _winterRoomButtonCanvasGroup;
@@ -38,11 +38,11 @@ public class Hud : MonoBehaviour, ISavedProgress
 
     private void OnEnable()
     {
-        _shop.Click += OnShopButtonClick;
+        /*_shop.Click += OnShopButtonClick;
         _winterRoom.Click += OnWinterRoomButtonClick;
         _room.Click += OnRoomButtonClick;
         _ads.Click += OnAdsButtonClick;
-        _menu.Click += OnMenuButtonClick;
+        _menu.Click += OnMenuButtonClick;*/
         _eventBus.Subscribe<ChangePlayerStateSignal>(OnPlayerChangePlayerState);
         Debug.Log($"Event bus in hud {_eventBus}");
         _eventBus.Subscribe<CoinsViewTextUpdateSignal>(OnWalletUpdateSignal);
@@ -50,11 +50,11 @@ public class Hud : MonoBehaviour, ISavedProgress
     
     private void OnDisable()
     {
-        _shop.Click -= OnShopButtonClick;
+        /*_shop.Click -= OnShopButtonClick;
         _winterRoom.Click -= OnWinterRoomButtonClick;
         _room.Click -= OnRoomButtonClick;
         _ads.Click -= OnAdsButtonClick;
-        _menu.Click -= OnMenuButtonClick;
+        _menu.Click -= OnMenuButtonClick;*/
         _eventBus.Unsubscribe<ChangePlayerStateSignal>(OnPlayerChangePlayerState);
         _eventBus.Unsubscribe<CoinsViewTextUpdateSignal>(OnWalletUpdateSignal);
     }
@@ -92,7 +92,7 @@ public class Hud : MonoBehaviour, ISavedProgress
 
     private void OnShopButtonClick(PointerEventData obj)
     {
-        _dialogManager.ShowDialog<ShopDialog>();
+        //_dialogManager.ShowDialog<ShopDialog>();
     }
 
     public void UpdatePetName(string petName)

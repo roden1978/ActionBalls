@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 using Zenject;
 
 
-public class ShopDialog : Dialog
+public class ShopDialog : MonoBehaviour
 {
     [SerializeField] private MainMenu _mainMenu;
     [SerializeField] private PointerListener _exitButton;
@@ -164,7 +164,12 @@ public class ShopDialog : Dialog
         Hide();
         ShowMainMenu();   
     }
-    
+
+    private void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void ShowMainMenu()
     {
         _mainMenu.gameObject.SetActive(true);

@@ -75,9 +75,9 @@ public class SoundSettingsMenu : MonoBehaviour
 
     private void SaveSoundSettings()
     {
-        _persistentProgress.Settings.SoundSettings.Mute = _mute.isOn ? 0 : 1;
+        /*_persistentProgress.Settings.SoundSettings.Mute = _mute.isOn ? 0 : 1;
         _persistentProgress.Settings.SoundSettings.Volume = _volume.value;
-        _saveLoadService.SaveSettings();
+        _saveLoadService.SaveSettings();*/
     }
 
     private void ShowMainMenu()
