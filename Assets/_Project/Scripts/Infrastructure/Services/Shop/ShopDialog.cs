@@ -90,12 +90,13 @@ public class ShopDialog : MonoBehaviour
 
     private bool ConfirmHat(Item item)
     {
-        var a = item.StuffSpecies is StuffSpecies.Cloths;
+        /*var a = item.StuffSpecies is StuffSpecies.Cloths;
         var b = _inventory.HasItem(item.Type);
         if (a && !b)
         {
             return _persistentProgress.PlayerProgress.PlayerState.PlayerDecor.Type == ItemType.None;
         }
+        */
 
         return false;
     }

@@ -84,7 +84,7 @@ namespace PlayerScripts
 
         public async void LoadProgress(PlayerProgress playerProgress)
         {
-            if (playerProgress.PlayerState.PlayerDecor.Type == ItemType.None) return;
+            /*if (playerProgress.PlayerState.PlayerDecor.Type == ItemType.None) return;
                 _itemType = playerProgress.PlayerState.PlayerDecor.Type;
                 string clothName = Enum.GetName(typeof(ItemType), (int)_itemType);
                 _stuff = await InstantiateItem(clothName);
@@ -92,14 +92,14 @@ namespace PlayerScripts
                 _stuff.Rotation = transform.rotation;
                 _stuff.StartPosition = playerProgress.PlayerState.PlayerDecor.StartPosition
                     .Vector3DataToVector3();
-                _stuff.AddLastStack(this);
+                _stuff.AddLastStack(this);*/
         }
 
         public void SaveProgress(PlayerProgress playerProgress)
         {
-            playerProgress.PlayerState.PlayerDecor = _itemType == ItemType.None
+            /*playerProgress.PlayerState.PlayerDecor = _itemType == ItemType.None
                 ? new PlayerDecor(ItemType.None, Vector3.zero.Vector3ToVector3Data())
-                : new PlayerDecor(_itemType, _stuff.StartPosition.Vector3ToVector3Data());
+                : new PlayerDecor(_itemType, _stuff.StartPosition.Vector3ToVector3Data());*/
         }
 
         private async UniTask<Stuff> InstantiateItem(string itemName)

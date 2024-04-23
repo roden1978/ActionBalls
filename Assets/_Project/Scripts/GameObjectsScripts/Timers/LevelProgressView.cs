@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoodIndicatorView : MonoBehaviour
+public class LevelProgressView : MonoBehaviour
 {
     [SerializeField] private Slider _indicator;
     [SerializeField] private Image _fillArea;

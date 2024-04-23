@@ -3071,7 +3071,7 @@ MonoBehaviour:
   _back: {fileID: 1280925521535210704}
   _mute: {fileID: 8807033998728805584}
   _volume: {fileID: 37506764906592198}
-  _mixer: {fileID: 24300002, guid: b5f78d7856ee3974ca230b3396a68677, type: 2}
+  _mixer: {fileID: 24300002, guid: cd3f53963a8f4304ba362041d9a90fac, type: 2}
 --- !u!1 &7095433990389470294
 GameObject:
   m_ObjectHideFlags: 0

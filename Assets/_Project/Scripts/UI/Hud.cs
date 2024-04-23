@@ -102,8 +102,8 @@ public class Hud : MonoBehaviour, ISavedProgress
 
     public void LoadProgress(PlayerProgress playerProgress)
     {
-        UpdatePetName(playerProgress.PlayerState.PetName);
-        UpdateHudButtons(playerProgress.PlayerState.State);
+        /*UpdatePetName(playerProgress.PlayerState.PetName);
+        UpdateHudButtons(playerProgress.PlayerState.State);*/
     }
 
 

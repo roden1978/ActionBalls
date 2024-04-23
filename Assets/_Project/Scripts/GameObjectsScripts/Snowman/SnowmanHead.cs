@@ -71,7 +71,7 @@ namespace PlayerScripts
 
         public async void LoadProgress(PlayerProgress playerProgress)
         {
-            string currentRoomName = SceneManager.GetActiveScene().name;
+            /*string currentRoomName = SceneManager.GetActiveScene().name;
             RoomState roomState = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
                 x.Name == currentRoomName);
 
@@ -86,12 +86,12 @@ namespace PlayerScripts
             Stuff stuff = await InstantiateDecor(decorName);
             stuff.GetComponentInChildren<Collider>().isTrigger = true;
             _stuff = stuff;
-            _timer.Start();
+            _timer.Start();*/
         }
 
         public void SaveProgress(PlayerProgress playerProgress)
         {
-            string currentRoomName = SceneManager.GetActiveScene().name;
+            /*string currentRoomName = SceneManager.GetActiveScene().name;
             RoomState room = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
                 x.Name == currentRoomName);
             if (room is not null)
@@ -111,7 +111,7 @@ namespace PlayerScripts
                         Type = _type,
                     },
                     Name = currentRoomName
-                });
+                });*/
         }
 
         private async UniTask<Stuff> InstantiateDecor(string decorName)

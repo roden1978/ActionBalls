@@ -61,9 +61,9 @@ public class SoundSettingsMenu : MonoBehaviour
 
     public void SetMute(bool enable)
     {
-        _mixer.audioMixer.SetFloat(Music, enable ? MaxValue : MinValue);
+        /*_mixer.audioMixer.SetFloat(Music, enable ? MaxValue : MinValue);
         _mixer.audioMixer.SetFloat(Effects, enable ? MaxValue : MinValue);
-        _mixer.audioMixer.SetFloat(UI, enable ? MaxValue : MinValue);
+        _mixer.audioMixer.SetFloat(UI, enable ? MaxValue : MinValue);*/
     }
 
     private void OnBackButtonClick(PointerEventData data)
@@ -75,9 +75,9 @@ public class SoundSettingsMenu : MonoBehaviour
 
     private void SaveSoundSettings()
     {
-        /*_persistentProgress.Settings.SoundSettings.Mute = _mute.isOn ? 0 : 1;
+        _persistentProgress.Settings.SoundSettings.Mute = _mute.isOn ? 0 : 1;
         _persistentProgress.Settings.SoundSettings.Volume = _volume.value;
-        _saveLoadService.SaveSettings();*/
+        _saveLoadService.SaveSettings();
     }
 
     private void ShowMainMenu()

@@ -118,7 +118,7 @@ public class MoodIndicator : ISavedProgress, IInitializable
 
     public void LoadProgress(PlayerProgress playerProgress)
     {
-        _indicatorValue = playerProgress.TimersData.MoodIndicatorValue;
+        /*_indicatorValue = playerProgress.TimersData.MoodIndicatorValue;
         TimerData moodTimer = playerProgress.TimersData.GetTimerDataByTimerType(TimerType.Mood);
 
         if (_indicatorValue > 0 && moodTimer is {Active: true})
@@ -135,7 +135,7 @@ public class MoodIndicator : ISavedProgress, IInitializable
             _moodTimer.Start();
         }
 
-        UpdateIndicatorValue?.Invoke(_indicatorValue);
+        UpdateIndicatorValue?.Invoke(_indicatorValue);*/
     }
 
     private float CalculateCurrentTime(float duration) =>
@@ -145,7 +145,7 @@ public class MoodIndicator : ISavedProgress, IInitializable
         _indicatorValue * TimeUtils.OneMinute * MoodScale;
 
     private double GetCurrentWorldTimeInSeconds(PlayerProgress playerProgress) =>
-        playerProgress.TimersData.CurrentWorldTimeInSeconds;
+        0;//playerProgress.TimersData.CurrentWorldTimeInSeconds;
 
     private double CalculateSecondsLastGameSave(double seconds)
     {
@@ -159,6 +159,6 @@ public class MoodIndicator : ISavedProgress, IInitializable
 
     public void SaveProgress(PlayerProgress playerProgress)
     {
-        playerProgress.TimersData.MoodIndicatorValue = _indicatorValue;
+        //playerProgress.TimersData.MoodIndicatorValue = _indicatorValue;
     }
 }

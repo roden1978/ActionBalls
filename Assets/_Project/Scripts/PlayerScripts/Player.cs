@@ -54,7 +54,7 @@ namespace PlayerScripts
 
         public void LoadProgress(PlayerProgress playerProgress)
         {
-            _state = playerProgress.PlayerState.State;
+            //_state = playerProgress.PlayerState.State;
             
             SetActiveColliders(_state == State.Awake);
 

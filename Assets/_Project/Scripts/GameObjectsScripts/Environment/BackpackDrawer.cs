@@ -19,7 +19,7 @@ public class BackpackDrawer : ItemDrawer, ISavedProgress, IInitializable
 
     public async void LoadProgress(PlayerProgress playerProgress)
     {
-        AnchorPointTransform = _anchorPointTransform;
+        /*AnchorPointTransform = _anchorPointTransform;
         string currentRoomName = SceneManager.GetActiveScene().name;
         RoomState roomState = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
             x.Name == currentRoomName);
@@ -33,12 +33,12 @@ public class BackpackDrawer : ItemDrawer, ISavedProgress, IInitializable
             string mealName = Enum.GetName(typeof(ItemType), (int)mealType);
             Stuff stuff = await InstantiateItem(mealName);
             stuff.AddLastStack(this);
-        }
+        }*/
     }
 
     public void SaveProgress(PlayerProgress playerProgress)
     {
-        string currentRoomName = SceneManager.GetActiveScene().name;
+        /*string currentRoomName = SceneManager.GetActiveScene().name;
         RoomState room = playerProgress.RoomsData.Rooms.FirstOrDefault(x =>
             x.Name == currentRoomName);
         if (room is not null)
@@ -58,7 +58,7 @@ public class BackpackDrawer : ItemDrawer, ISavedProgress, IInitializable
                     Type = ItemType
                 },
                 Name = currentRoomName
-            });
+            });*/
     }
 
     public override void Stack(Stuff stuff)

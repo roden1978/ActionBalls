@@ -60,11 +60,11 @@ public class GameOverTimerObserver : ISavedProgress
         currentTime - timeDelta <= 0 ? 0 : (float)(currentTime - timeDelta);
 
     private double GetCurrentWorldTimeInSeconds(PlayerProgress playerProgress) =>
-        playerProgress.TimersData.CurrentWorldTimeInSeconds;
+        0;//playerProgress.TimersData.CurrentWorldTimeInSeconds;
 
     public void LoadProgress(PlayerProgress playerProgress)
     {
-        if (playerProgress.PlayerState.FirstStartGame) return;
+        /*if (playerProgress.PlayerState.FirstStartGame) return;
 
         TimerData gameOverTimer = playerProgress.TimersData.GetTimerDataByTimerType(TimerType.GameOver);
 
@@ -75,7 +75,7 @@ public class GameOverTimerObserver : ISavedProgress
             float newCurrentTime = UpdateCurrentTime(gameOverTimer.CurrentTime, delta);
             _timer.UpdateTimerCurrentTime(newCurrentTime);
             _timer.Start();
-        }
+        }*/
     }
 
     public void SaveProgress(PlayerProgress playerProgress)

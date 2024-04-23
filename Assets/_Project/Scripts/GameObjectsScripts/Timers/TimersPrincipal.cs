@@ -7,13 +7,14 @@ using TriInspector;
 using UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 {
     [SerializeField] private SoTimersSet _set;
     [SerializeField] private Transform _parent;
-    [SerializeField] private MoodIndicatorView _moodIndicatorView;
+    [FormerlySerializedAs("_moodIndicatorView")] [SerializeField] private LevelProgressView _levelProgressView;
     [SerializeField] private Transform _moodIndicatorParent;
     [SerializeField] [Range(1, 5)] private int _saveStateInterval;
 
@@ -156,7 +157,7 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 
     private void SetGameOverValue(bool value)
     {
-        _persistentProgress.PlayerProgress.PlayerState.GameOver = value;
+        //_persistentProgress.PlayerProgress.PlayerState.GameOver = value;
         _isGameOverTimerStarted = false;
         if (false == value)
             _gameOverDialog.GameWasContinue -= OnGameWasContinue;
@@ -285,13 +286,13 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 
     private void InstantiateMoodIndicatorView()
     {
-        MoodIndicatorView moodIndicatorView = Instantiate(_moodIndicatorView, _moodIndicatorParent);
-        moodIndicatorView.Construct(_moodIndicator, _saveLoadStorage);
+        LevelProgressView levelProgressView = Instantiate(_levelProgressView, _moodIndicatorParent);
+        levelProgressView.Construct(_moodIndicator, _saveLoadStorage);
     }
 
     public void LoadProgress(PlayerProgress playerProgress)
     {
-        if (playerProgress.PlayerState.FirstStartGame) return;
+        /*if (playerProgress.PlayerState.FirstStartGame) return;
         string roomName = CurrentSceneName();
         AddTimersView(roomName);
         var value = CalculateSecondsLastGameSave(playerProgress.TimersData.CurrentWorldTimeInSeconds);
@@ -300,7 +301,7 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
         {
             StopAllTimers();
             ShowGameOverDialog();
-        }
+        }*/
     }
 
     private double CalculateSecondsLastGameSave(double seconds)
@@ -317,7 +318,7 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 
     private void UpdateTimersProgress(PlayerProgress playerProgress, double timeDelta)
     {
-        foreach (Timer timer in _timerSet.Where(x =>
+        /*foreach (Timer timer in _timerSet.Where(x =>
                      x.HasRole(TimerRoles.Rewardable) ||
                      x.HasRole(TimerRoles.AwakeStart))
                 )
@@ -334,7 +335,7 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
                 if (timer.Active)
                     timer.Start();
             }
-        }
+        }*/
     }
 
     private TimerData UpdateTimerData(TimerData timerData, double timeDelta)
@@ -351,13 +352,13 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 
     public void SaveProgress(PlayerProgress playerProgress)
     {
-        playerProgress.TimersData.CurrentWorldTimeInSeconds =
+        /*playerProgress.TimersData.CurrentWorldTimeInSeconds =
             DateTime.Now.Subtract(_timeOrigin).TotalSeconds;
         playerProgress.TimersData.Timers.Clear();
         foreach (Timer timer in _timerSet)
         {
             playerProgress.TimersData.Timers.Add(timer.SaveState());
-        }
+        }*/
     }
 }
 

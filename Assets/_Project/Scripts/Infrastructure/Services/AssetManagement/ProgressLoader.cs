@@ -19,10 +19,10 @@ namespace Infrastructure.AssetManagement
 
         public void Initialize()
         {
-            /*LoadStaticData();
+            //LoadStaticData();
 
             LoadSettings();
-            LoadPlayerProgress();*/
+            LoadPlayerProgress();
         }
 
         private void LoadStaticData()
