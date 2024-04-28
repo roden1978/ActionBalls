@@ -1,7 +1,6 @@
 ﻿using System;
 using CustomEventBus.Signals;
 using Infrastructure;
-using Infrastructure.AssetManagement;
 using Infrastructure.Services.EventBus.Signals.PlayerSignals;
 using PlayerScripts;
 using TMPro;
@@ -16,11 +15,13 @@ public class Hud : MonoBehaviour, ISavedProgress
     [SerializeField] private PointerListener _shop;
     [SerializeField] private PointerListener _winterRoom;
     [SerializeField] private PointerListener _room;
-    [SerializeField] private PointerListener _ads;
-    [SerializeField] private PointerListener _menu;*/
-    [SerializeField] private TMP_Text _petName;
+    [SerializeField] private PointerListener _ads;*/
+    [SerializeField] private PointerListener _menu;
     [SerializeField] private TMP_Text _currencyValueText;
-    [SerializeField] private CanvasGroup _winterRoomButtonCanvasGroup;
+    [SerializeField] private Transform _progressViewParent;
+
+    public Transform ProgressViewParent => _progressViewParent;
+    
     private ISceneLoader _sceneLoader;
     private DialogManager _dialogManager;
     private EventBus _eventBus;
@@ -97,7 +98,7 @@ public class Hud : MonoBehaviour, ISavedProgress
 
     public void UpdatePetName(string petName)
     {
-        _petName.text = petName;
+        //petName.text = petName;
     }
 
     public void LoadProgress(PlayerProgress playerProgress)
@@ -136,10 +137,10 @@ public class Hud : MonoBehaviour, ISavedProgress
 
     private void SwitchingWinterRoomButton(State state)
     {
-        if (state == State.Sleep)
+        /*if (state == State.Sleep)
             SetCanvasGroupValues(_winterRoomButtonCanvasGroup, .7f, false, false);
         else
-            SetCanvasGroupValues(_winterRoomButtonCanvasGroup, 1f, true, true);
+            SetCanvasGroupValues(_winterRoomButtonCanvasGroup, 1f, true, true);*/
     }
 
     private void PointerListenerSetActive(Component pointerListener, bool value)

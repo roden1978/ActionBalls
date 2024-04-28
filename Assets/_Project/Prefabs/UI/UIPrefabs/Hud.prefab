@@ -199,14 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 003804229d624320b19d0175debc0259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shop: {fileID: 0}
-  _winterRoom: {fileID: 0}
-  _room: {fileID: 0}
-  _ads: {fileID: 0}
   _menu: {fileID: 5568974556617660071}
-  _petName: {fileID: 0}
   _currencyValueText: {fileID: 2997819428557755994}
-  _winterRoomButtonCanvasGroup: {fileID: 0}
+  _progressViewParent: {fileID: 3167864760995138192}
 --- !u!1 &3681285851207673091
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

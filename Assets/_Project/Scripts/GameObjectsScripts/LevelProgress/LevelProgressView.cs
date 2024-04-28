@@ -1,31 +1,21 @@
-﻿using Services.SaveLoad.PlayerProgress;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class LevelProgressView : MonoBehaviour
 {
     [SerializeField] private Slider _indicator;
     [SerializeField] private Image _fillArea;
-    [SerializeField] private Image _moodIcon;
+    [SerializeField] private Image _icon;
     
     private readonly Color[] _colors = { new(1, 0, 0), new(1, .3f, 0), Color.yellow, Color.green };
-    private MoodIndicator _moodIndicator;
 
-    public void Construct(MoodIndicator moodIndicator, ISaveLoadStorage saveLoadStorage)
+    private void Awake()
     {
-        _moodIndicator = moodIndicator;
         _indicator.onValueChanged.AddListener(SetColour);
-        _moodIndicator.UpdateIndicatorValue += OnUpdateIndicatorView;
-        saveLoadStorage.RegisterInSaveLoadRepositories(_moodIndicator);
     }
-    
-    private void OnDisable()
-    {
-        _moodIndicator.UpdateIndicatorValue -= OnUpdateIndicatorView;
-        _moodIndicator.Dispose();
-    }
-
-    private void OnUpdateIndicatorView(float value)
+   
+    public void UpdateProgress(float value)
     {
         Debug.Log($"Update timer indicator value {value}");
         _indicator.value = value;
@@ -35,7 +25,7 @@ public class LevelProgressView : MonoBehaviour
     private void SetColour(float current)
     {
         (Color oldColor, Color newColor, float newT) result = Calculate(current);
-        _fillArea.color = _moodIcon.color = Color.Lerp(result.oldColor, result.newColor, result.newT);
+        _fillArea.color = _icon.color = Color.Lerp(result.oldColor, result.newColor, result.newT);
     }
 
     private (Color, Color, float) Calculate(float current)

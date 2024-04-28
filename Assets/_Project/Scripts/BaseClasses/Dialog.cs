@@ -4,10 +4,10 @@ namespace UI
 {
     public abstract class Dialog : MonoBehaviour
     { 
-        [SerializeField] protected Canvas _canvas;
+        protected Canvas Base;
         protected void Hide()
        {
-           _canvas.gameObject.SetActive(false);
+           Base.gameObject.SetActive(false);
        }
     }
 }

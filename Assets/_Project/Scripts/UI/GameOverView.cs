@@ -1,41 +1,38 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
+using Zenject;
+
 
 public class GameOverView : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup _continueCanvasGroup;
-    [SerializeReference] private TMP_Text _priceText;
+    [SerializeField] private Canvas _win;
+    [SerializeField] private Canvas _lose;
     [SerializeField] private TMP_Text _walletAmount;
     private IWalletService _wallet;
-    private int _petPrice;
 
-    public void Construct(IWalletService wallet, int petPrice)
+    [Inject]
+    public void Construct(IWalletService wallet)
     {
         _wallet = wallet;
-        _petPrice = petPrice;
     }
     private void OnEnable()
     {
-        ValidateCurrencyCount();
-        _priceText.text = _petPrice.ToString();
-    }
-    
-    private void ValidateCurrencyCount()
-    {
-        Debug.Log($"Coins amount: {_wallet.GetAmount(CurrencyType.Coins)}");
-
         _walletAmount.text = _wallet.GetAmount(CurrencyType.Coins).ToString();
-        
-        if (_wallet.GetAmount(CurrencyType.Coins) < _petPrice)
-            SetCanvasGroupValues(_continueCanvasGroup, .8f, false, false);
-        else
-            SetCanvasGroupValues(_continueCanvasGroup, 1f, true, true);
     }
-    
-    private void SetCanvasGroupValues(CanvasGroup canvasGroup, float alphaValue, bool interactable, bool blockRaycast)
+
+    public void OpenWindow(WindowsType window)
     {
-        canvasGroup.alpha = alphaValue;
-        canvasGroup.interactable = interactable;
-        canvasGroup.blocksRaycasts = blockRaycast;
+        switch (window)
+        {
+            case WindowsType.Lose:
+                _lose.gameObject.SetActive(true);
+                break;
+            case WindowsType.Win:
+                _win.gameObject.SetActive(true);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(window), window, null);
+        }
     }
 }

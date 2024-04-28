@@ -73,7 +73,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _indicator: {fileID: 6323865001399998720}
   _fillArea: {fileID: 3458003664155109044}
-  _moodIcon: {fileID: 5902701383896154604}
+  _icon: {fileID: 5902701383896154604}
 --- !u!1 &1844059015104286615
 GameObject:
   m_ObjectHideFlags: 0

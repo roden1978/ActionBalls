@@ -119,8 +119,8 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 
     private void ShowGameOverDialog()
     {
-        _gameOverDialog = _dialogManager.ShowDialog<GameOverDialog>();
-        _gameOverDialog.GameWasContinue += OnGameWasContinue;
+        /*_gameOverDialog = _dialogManager.ShowDialog<GameOverDialog>();
+        _gameOverDialog.GameWasContinue += OnGameWasContinue;*/
     }
 
     private void StopAllTimers()
@@ -157,11 +157,11 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 
     private void SetGameOverValue(bool value)
     {
-        //_persistentProgress.PlayerProgress.PlayerState.GameOver = value;
+        /*//_persistentProgress.PlayerProgress.PlayerState.GameOver = value;
         _isGameOverTimerStarted = false;
         if (false == value)
             _gameOverDialog.GameWasContinue -= OnGameWasContinue;
-        SaveProgress();
+        SaveProgress();*/
     }
 
     private void SaveProgress()
@@ -199,14 +199,14 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 
     private void OnDisable()
     {
-        _moodIndicator.UpdateIndicatorValue -= OnMoodIndicatorUpdateValue;
+        /*_moodIndicator.UpdateIndicatorValue -= OnMoodIndicatorUpdateValue;
         _gameOverTimerObserver.Dispose();
         _gameOverTimerObserver.EndGameOverTimer -= OnEndGameOverTimer;
 
         if (_gameOverDialog is not null)
             _gameOverDialog.GameWasContinue -= OnGameWasContinue;
 
-        _saveGameTimerObserver.Dispose();
+        _saveGameTimerObserver.Dispose();*/
     }
 
     public Timer GetTimerByType(TimerType type) =>
@@ -286,8 +286,8 @@ public class TimersPrincipal : MonoBehaviour, ISavedProgress, IInitializable
 
     private void InstantiateMoodIndicatorView()
     {
-        LevelProgressView levelProgressView = Instantiate(_levelProgressView, _moodIndicatorParent);
-        levelProgressView.Construct(_moodIndicator, _saveLoadStorage);
+        /*LevelProgressView levelProgressView = Instantiate(_levelProgressView, _moodIndicatorParent);
+        levelProgressView.Construct(_moodIndicator, _saveLoadStorage);*/
     }
 
     public void LoadProgress(PlayerProgress playerProgress)
