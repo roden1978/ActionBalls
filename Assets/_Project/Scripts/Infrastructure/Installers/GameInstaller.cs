@@ -42,8 +42,7 @@ public class GameInstaller : MonoInstaller
         BindPlayer();
         BindGameOverDialog();
         BindLevelProgress();
-        BindProgressView();
-        BindLevelProgressController();
+     
         //BindTimersPrincipal();
         //BindInputNameDialog();
         //BindEgg();
@@ -163,22 +162,13 @@ public class GameInstaller : MonoInstaller
         _saveLoadStorage.RegisterInSaveLoadRepositories(hud);
     }
 
-    private void BindProgressView()
+    private void BindLevelProgress()
     {
         GameObject prefab = _prefabsStorage.Get(typeof(LevelProgressView));
         Transform parent = _hudTransform.gameObject.GetComponent<Hud>().ProgressViewParent;
         GameObject progressView = Container.InstantiatePrefab(prefab, parent);
         Container.Bind<LevelProgressView>().FromComponentOn(progressView).AsSingle();
-        //_saveLoadStorage.RegisterInSaveLoadRepositories(progressView);
-    }
-
-    private void BindLevelProgress()
-    {
         Container.BindInterfacesAndSelfTo<LevelProgress>().FromInstance(new LevelProgress(1000)).AsSingle();
-    }
-
-    private void BindLevelProgressController()
-    {
         Container.Bind<LevelProgressController>().AsSingle();
     }
 
