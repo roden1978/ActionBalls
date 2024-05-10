@@ -1,7 +1,9 @@
-﻿using Common;
+﻿using System;
+using Common;
 
 namespace GameObjectsScripts
 {
+    [Serializable]
     public class Row : IItem
     {
         public int Id { get; private set; }

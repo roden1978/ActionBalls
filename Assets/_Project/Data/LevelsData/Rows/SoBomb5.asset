@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f065fd3fc2a7440b8bb63c850e29d50f, type: 3}
+  m_Name: SoBomb5
+  m_EditorClassIdentifier: 
+  Capacity: 5
+  Balls:
+  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
+  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
+  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
+  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
+  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}

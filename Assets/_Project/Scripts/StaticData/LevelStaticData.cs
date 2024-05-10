@@ -7,14 +7,13 @@ namespace StaticData
     [CreateAssetMenu(fileName = "New LevelData", menuName = "StaticData/LevelData")]
     public class LevelStaticData : ScriptableObject
     {
-        [CustomReadOnly]
         public string LevelKey;
-        [ReadOnly]
-        public List<EnvironmentObjectSpawnData> EnvironmentObjectsSpawnData;
-        [ReadOnly]
-        public List<StuffSpawnData> StuffSpawnData;
+        public List<RowStaticData> Rows;
+        [Range(5, 10)] public int Difficult = 5; // from 5 to 10 cells in row
+        public int TargetScores = 100;
 
-        public EnvironmentObjectSpawnData GetEnvironmentObjectSpawnDataByTypeId(GameObjectsTypeId typeId)
+
+        /*public EnvironmentObjectSpawnData GetEnvironmentObjectSpawnDataByTypeId(GameObjectsTypeId typeId)
         {
             return EnvironmentObjectsSpawnData.Find(x => x.GameObjectsTypeId == typeId);
         }
@@ -22,6 +21,6 @@ namespace StaticData
         public StuffSpawnData GetStuffSpawnDataBySpecies(StuffSpecies species)
         {
             return StuffSpawnData.Find(x => x.StuffSpecies == species);
-        }
+        }*/
     }
 }

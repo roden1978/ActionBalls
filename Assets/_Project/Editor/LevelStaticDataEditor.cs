@@ -1,13 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using Cysharp.Threading.Tasks;
-using GameObjectsScripts;
-using Infrastructure.AssetManagement;
 using StaticData;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.SceneManagement;
 
 namespace Editor
 {
@@ -16,12 +10,13 @@ namespace Editor
     {
         //private List<TemporarySceneObject> _temporarySceneObjects = new();
 
-        public override async void OnInspectorGUI()
+        public override void OnInspectorGUI()
         {
-            base.OnInspectorGUI();
+            /*base.OnInspectorGUI();
             LevelStaticData levelData = (LevelStaticData)target;
-            GUILayout.Label("Collecting");
-            if (GUILayout.Button("Collect"))
+            GUILayout.Label("Collecting");*/
+            
+            /*if (GUILayout.Button("Collect"))
             {
                 levelData.EnvironmentObjectsSpawnData = FindObjectsOfType<EnvironmentObjectMarker>()
                     .Select(x =>
@@ -62,6 +57,7 @@ namespace Editor
 
                 if (levelData.StuffSpawnData.Count == 0)
                 {
+                
                 }
 
                 foreach (EnvironmentObjectSpawnData objectSpawnData in levelData.EnvironmentObjectsSpawnData)
@@ -141,7 +137,7 @@ namespace Editor
                     Vector3 smPosition = x.transform.position;
                     stuffMarker.Position = smPosition;
                 });
-            }
+            }*/
 
             EditorUtility.SetDirty(target);
         }
