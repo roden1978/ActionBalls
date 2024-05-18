@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Serialization;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelProgressView : MonoBehaviour
@@ -7,7 +7,9 @@ public class LevelProgressView : MonoBehaviour
     [SerializeField] private Slider _indicator;
     [SerializeField] private Image _fillArea;
     [SerializeField] private Image _icon;
-    
+
+    public event Action DestroyLevelProgressView; 
+
     private readonly Color[] _colors = { new(1, 0, 0), new(1, .3f, 0), Color.yellow, Color.green };
 
     private void Awake()
@@ -38,4 +40,8 @@ public class LevelProgressView : MonoBehaviour
         return (oldColor, newColor, newT);
     }
 
+    private void OnDestroy()
+    {
+        DestroyLevelProgressView?.Invoke();
+    }
 }

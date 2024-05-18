@@ -3,18 +3,18 @@ using Common;
 
 namespace GameObjectsScripts
 {
-    [Serializable]
-    public class Row : IItem
+    public class Row : IRow
     {
-        public int Id { get; private set; }
+        public int Index { get; private set; }
+        public event Action<int> IndexChanged;
         public int Capacity => _rowData.Capacity;
         private readonly RowData _rowData;
         private readonly IRepository<Cell> _repository;
         public Row(int id, RowData rowData)
         {
-            Id = id;
+            Index = id;
             _rowData = rowData;
-            _repository = new Repository<Cell>(Capacity);
+            _repository = new Repository<Cell>(_rowData.Capacity);
         }
 
         public void AddCell(Cell cell)
@@ -22,14 +22,16 @@ namespace GameObjectsScripts
             _repository.Add(cell);
         }
 
-        public Cell GetCell(int id)
+        public Cell GetCell(int index)
         {
-            return _repository.Get(id);
+            return _repository.Get(index);
         }
 
-        public void UpdateId(int newId)
+        public void UpdateIndex(int newIndex)
         {
-            Id = newId;
+            Index = newIndex;
+            IndexChanged?.Invoke(newIndex);
         }
+
     }
 }

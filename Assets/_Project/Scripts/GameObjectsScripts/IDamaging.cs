@@ -2,6 +2,6 @@
 {
     public interface IDamaging
     {
-        public int Damage { get;}
+        public float Damage { get;}
     }
 }

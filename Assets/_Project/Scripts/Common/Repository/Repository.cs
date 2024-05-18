@@ -18,7 +18,7 @@ namespace Common
         }
         public virtual T Get(int id)
         {
-            return _repository.First(x => x.Id == id);
+            return _repository.First(x => x.Index == id);
         }
 
         public void Add(T item)

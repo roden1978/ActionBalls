@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Capacity: 5
   Balls:
-  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
-  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
-  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
-  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
-  - {fileID: 11400000, guid: b85827cab8f80ad4691f7a6ea00259b1, type: 2}
+  - {fileID: 11400000, guid: c43c803d8daf9ba47bd3e2a370f05064, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: c43c803d8daf9ba47bd3e2a370f05064, type: 2}
+  - {fileID: 11400000, guid: c43c803d8daf9ba47bd3e2a370f05064, type: 2}

@@ -1,34 +1,43 @@
 ﻿using System;
+using Common;
 using Data;
 
 namespace GameObjectsScripts
 {
-    public class ReadOnlyBall : IReadOnlyBall
+    public class Ball : IReadOnlyBall, IDamageable
     {
         public event Action<float> HpChange;
-        public float Hp => _ballData.Hp;
-        
+        public float Hp
+        {
+            get => _ballData.Hp;
+            private set
+            {
+                _ballData.Hp = value;
+                HpChange?.Invoke(value);
+            }
+        }
+
         private readonly BallData _ballData;
-        public ReadOnlyBall(BallData ballData)
+        public Ball(BallData ballData)
         {
             _ballData = ballData;
         }
 
         private void DecreaseHp(float value)
         {
-            _ballData.Hp -= value;
-            _ballData.Hp = _ballData.Hp <= 0 ? 0 : _ballData.Hp;
-            HpChange?.Invoke(_ballData.Hp);
+            Hp -= value;
+            Hp = Hp <= 0 ? 0 : Hp;
+            HpChange?.Invoke(Hp);
         }
 
         public void IncreaseHp(float value)
         {
-            float newValue = _ballData.MaxHp - (_ballData.Hp + value) > _ballData.MaxHp
-                    ? _ballData.MaxHp - _ballData.Hp
+            float newValue = _ballData.MaxHp - (Hp + value) > _ballData.MaxHp
+                    ? _ballData.MaxHp - Hp
                     : value;
             
-            _ballData.Hp += newValue;
-            HpChange?.Invoke(_ballData.Hp);
+            Hp += newValue;
+            HpChange?.Invoke(Hp);
         }
 
         public void TakeDamage(float value)

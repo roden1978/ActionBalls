@@ -1,15 +1,18 @@
 ﻿using System;
 using StaticData;
-using UnityEngine;
 
 namespace Data
 {
     [Serializable]
     public class BallData
     {
-        public int Id;
-        public BallType BallType;
+        public BallStaticData BallStaticData;
         public float Hp;
-        public Sprite Icon;
+        public float MaxHp;
+
+        public BallData(BallStaticData ballStaticData)
+        {
+            BallStaticData = ballStaticData;
+        }
     }
 }

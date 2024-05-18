@@ -1,20 +1,33 @@
 ﻿using System;
+using Common;
 
 namespace GameObjectsScripts
 {
-    public class CueBall : IReadOnlyCueBall
+    public class CueBall : IReadOnlyCueBall, IDamageable
     {
         public event Action<float> HpChanged;
-        private CueBallData _cueBallData;
+        public event Action<float> DamageChanged; 
 
-        public float HP
+        private readonly CueBallData _cueBallData;
+
+        public float Hp
         {
-            get => _cueBallData.HP;
+            get => _cueBallData.Hp;
 
             private set
             {
-                _cueBallData.HP = value; 
+                _cueBallData.Hp = value; 
                 HpChanged?.Invoke(value);
+            }
+        }
+
+        public float Damage
+        {
+            get => _cueBallData.Damage;
+            private set
+            {
+                _cueBallData.Damage = value; 
+                DamageChanged?.Invoke(value);
             }
         }
         public CueBall(CueBallData cueBallData)
@@ -22,5 +35,9 @@ namespace GameObjectsScripts
             _cueBallData = cueBallData;
         }
 
+        public void TakeDamage(float value)
+        {
+            Hp -= value;
+        }
     }
 }

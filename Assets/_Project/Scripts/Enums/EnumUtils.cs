@@ -1,7 +1,17 @@
-﻿namespace StaticData
+﻿using System;
+
+namespace StaticData
 {
-    public class EnumUtils
+    public static class EnumUtils
     {
+        public static T ParseEnum<T>(string value)
+        {
+            return (T) Enum.Parse(typeof(T), value, true);
+        }
         
+        public static T ToEnum<T>(this string value)
+        {
+            return (T) Enum.Parse(typeof(T), value, true);
+        }
     }
 }

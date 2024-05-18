@@ -8,5 +8,6 @@ namespace GameObjectsScripts
         bool isEmpty { get; }
         event Action<int> IndexChanged;
         void UpdateIndex(int newIndex);
+        IReadOnlyBall ReadOnlyBall { get; }
     }
 }

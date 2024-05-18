@@ -15,5 +15,10 @@ namespace GameObjectsScripts
         {
             _repository.Add(row);
         }
+
+        private void UpdateRowIndex(int newIndex)
+        {
+            
+        }
     }
 }

@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace GameObjectsScripts
+﻿namespace GameObjectsScripts
 {
-    [Serializable]
     public class CueBallData
     {
-        public float HP;
+        public float Hp;
+        public float Damage;
     }
 }

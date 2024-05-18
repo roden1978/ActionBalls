@@ -2,6 +2,6 @@
 {
     public interface IItem
     {
-        int Id { get; }
+        int Index { get; }
     }
 }

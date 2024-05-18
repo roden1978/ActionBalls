@@ -14,6 +14,7 @@ public class LevelProgressController : IInitializable
     public void Initialize()
     {
         _levelProgress.UpdateLevelProgress += OnUpdateLevelProgress;
+        _levelProgressView.DestroyLevelProgressView += Dispose;
     }
 
     private void OnUpdateLevelProgress(float value)
@@ -21,8 +22,9 @@ public class LevelProgressController : IInitializable
         _levelProgressView.UpdateProgress(value);
     }
 
-    public void Dispose()
+    private void Dispose()
     {
         _levelProgress.UpdateLevelProgress -= OnUpdateLevelProgress;
+        _levelProgressView.DestroyLevelProgressView -= Dispose;
     }
 }
