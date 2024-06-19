@@ -5,6 +5,7 @@ namespace GameObjectsScripts
 {
     public class Row : IRow
     {
+        public Position Position { get; set; }
         public int Index { get; private set; }
         public event Action<int> IndexChanged;
         public int Capacity => _rowData.Capacity;
@@ -33,5 +34,17 @@ namespace GameObjectsScripts
             IndexChanged?.Invoke(newIndex);
         }
 
+    }
+
+    public struct Position
+    {
+        public int X;
+        public int Y;
+
+        public Position(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
     }
 }

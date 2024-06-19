@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Data;
+using GameObjectsScripts;
 using PlayerScripts;
 using UnityEditor;
 using UnityEngine;
@@ -47,6 +48,16 @@ public static class Extensions
     public static Quaternion QuaternionDataToQuaternion(this QuaternionData quaternionData)
     {
         return new Quaternion(quaternionData.X, quaternionData.Y, quaternionData.Z, quaternionData.W);
+    }
+
+    public static Vector2 RowPositionToVector2(this Position position)
+    {
+        return new Vector2(position.X, position.Y);
+    }
+
+    public static Position Vector2ToRowPosition(this Vector2 vector2)
+    {
+        return new Position((int) vector2.x, (int) vector2.y);
     }
 
     public static int Random100()

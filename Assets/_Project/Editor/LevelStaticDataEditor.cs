@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using StaticData;
 using UnityEditor;
 using UnityEngine;
@@ -12,10 +13,44 @@ namespace Editor
 
         public override void OnInspectorGUI()
         {
-            /*base.OnInspectorGUI();
+            base.OnInspectorGUI();
             LevelStaticData levelData = (LevelStaticData)target;
-            GUILayout.Label("Collecting");*/
-            
+            GUILayout.Label("Collecting");
+
+            var rowsCount = levelData.Capacity < levelData.Rows.Count ? levelData.Capacity : levelData.Rows.Count;
+            //if (levelData.Rows.Count <= 2) return;
+            for (int i = 0; i < rowsCount; i++)
+            {
+                if (levelData.Rows[i] is null) return;
+                
+                EditorGUILayout.BeginHorizontal();
+                var ballsCount = levelData.Rows[i].Balls.Count;
+                for (int j = 0; j < ballsCount; j++)
+                {
+                    Texture2D texture = new(50, 50);
+                    BallStaticData ball = levelData.Rows[i].Balls[j];
+
+                    if (ball != null)
+                        texture = AssetPreview.GetAssetPreview(levelData.Rows[i].Balls[j].Icon);
+                    EditorGUILayout.BeginHorizontal();
+                    GUILayout.Label("", GUILayout.Height(50), GUILayout.Width(50));
+                    GUI.DrawTexture(GUILayoutUtility.GetLastRect(), texture);
+
+                    EditorGUILayout.EndHorizontal();
+                }
+
+                EditorGUILayout.EndHorizontal();
+            }
+
+            IEnumerable<RowStaticData> wrongRow = levelData.Rows.Where(x => x.Balls.Count != levelData.Capacity);
+
+            foreach (RowStaticData rowStaticData in wrongRow.ToList())
+            {
+                levelData.Rows.Remove(rowStaticData);
+            }
+
+            EditorUtility.SetDirty(target);
+
             /*if (GUILayout.Button("Collect"))
             {
                 levelData.EnvironmentObjectsSpawnData = FindObjectsOfType<EnvironmentObjectMarker>()

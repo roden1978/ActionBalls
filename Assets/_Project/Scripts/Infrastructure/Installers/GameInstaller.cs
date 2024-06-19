@@ -1,47 +1,16 @@
-﻿using Services.SaveLoad.PlayerProgress;
-using Services.StaticData;
-using StaticData;
-using UI;
-using UnityEngine;
+﻿using UI;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
 {
-    private PrefabsStorage _prefabsStorage;
-    private ISaveLoadStorage _saveLoadStorage;
-    private IStaticDataService _staticDataService;
-    private LevelStaticData _levelStaticData;
-    private IPersistentProgress _persistenceProgress;
-
-    private Transform _guiHolderTransform;
-    private Transform _hudTransform;
-    private IWalletService _wallet;
-
-    [Inject]
-    public void Construct(PrefabsStorage prefabsStorage, ISaveLoadStorage saveLoadStorage,
-        IStaticDataService staticDataService, IPersistentProgress persistentProgress, IWalletService wallet)
-    {
-        _prefabsStorage = prefabsStorage;
-        _saveLoadStorage = saveLoadStorage;
-        _staticDataService = staticDataService;
-        _persistenceProgress = persistentProgress;
-        _wallet = wallet;
-
-        //_levelStaticData = _staticDataService.GetLevelStaticData(AssetPaths.RoomSceneName.ToString());
-        _saveLoadStorage.ClearAll();
-    }
-
-
     public override void InstallBindings()
     {
-        RegisterWallet();
-        BindGuiHolder();
-        BindDialogManager();
-        BindHud();
         BindInventory();
+        BindDialogManager();
         BindPlayer();
-        BindGameOverDialog();
-        BindLevelProgress();
+        BindGameFactory();
+        //BindGameOverDialog();
+        //BindLevelProgress();
      
         //BindTimersPrincipal();
         //BindInputNameDialog();
@@ -60,19 +29,18 @@ public class GameInstaller : MonoInstaller
         BindMenuDialog();*/
     }
     
-    private void RegisterWallet()
+    private void BindInventory()
     {
-        _saveLoadStorage.RegisterInSaveLoadRepositories(_wallet);
+        Container.BindInterfacesAndSelfTo<Inventory>().AsSingle();
+    }
+    private void BindDialogManager()
+    {
+        Container.Bind<DialogManager>().AsSingle();
     }
 
-    private void BindGuiHolder()
+    private void BindGameFactory()
     {
-        Debug.Log($"Instantiate GuiHolder start");
-        GameObject prefab = _prefabsStorage.Get(typeof(GuiHolder));
-        GameObject guiHolder = Container.InstantiatePrefab(prefab);
-        _guiHolderTransform = guiHolder.transform;
-
-        Container.Bind<GuiHolder>().FromComponentOn(guiHolder).AsSingle();
+        Container.BindInterfacesAndSelfTo<GameFactory>().AsSingle();
     }
 
     /*private void BindPoop()
@@ -109,10 +77,7 @@ public class GameInstaller : MonoInstaller
         _saveLoadStorage.RegisterInSaveLoadRepositories(inventoryNameDialog);
     }*/
 
-    private void BindInventory()
-    {
-        Container.BindInterfacesAndSelfTo<Inventory>().AsSingle();
-    }
+    
 
     /*private void BindMealInventoryDialog()
     {
@@ -140,36 +105,11 @@ public class GameInstaller : MonoInstaller
         GameObject menuDialog = Container.InstantiatePrefab(prefab, _guiHolderTransform);
         Container.BindInterfacesAndSelfTo<MenuDialog>().FromComponentOn(menuDialog).AsSingle();
     }*/
-    private void BindGameOverDialog()
-    {
-        GameObject prefab = _prefabsStorage.Get(typeof(GameOverDialog));
-        GameObject gameOverDialog = Container.InstantiatePrefab(prefab, _guiHolderTransform);
-        Container.BindInterfacesAndSelfTo<GameOverDialog>().FromComponentOn(gameOverDialog).AsSingle();
-    }
+    
 
-    private void BindDialogManager()
+    private void BindBucket()
     {
-        Container.Bind<DialogManager>().AsSingle();
-    }
-
-    private void BindHud()
-    {
-        Debug.Log($"Instantiate Hud start ");
-        GameObject prefab = _prefabsStorage.Get(typeof(Hud));
-        GameObject hud = Container.InstantiatePrefab(prefab, _guiHolderTransform);
-        _hudTransform = hud.transform;
-        Container.Bind<Hud>().FromComponentOn(hud).AsSingle();
-        _saveLoadStorage.RegisterInSaveLoadRepositories(hud);
-    }
-
-    private void BindLevelProgress()
-    {
-        GameObject prefab = _prefabsStorage.Get(typeof(LevelProgressView));
-        Transform parent = _hudTransform.gameObject.GetComponent<Hud>().ProgressViewParent;
-        GameObject progressView = Container.InstantiatePrefab(prefab, parent);
-        Container.Bind<LevelProgressView>().FromComponentOn(progressView).AsSingle();
-        Container.BindInterfacesAndSelfTo<LevelProgress>().FromInstance(new LevelProgress(1000)).AsSingle();
-        Container.Bind<LevelProgressController>().AsSingle();
+        
     }
 
     /*private void BindTimersPrincipal()

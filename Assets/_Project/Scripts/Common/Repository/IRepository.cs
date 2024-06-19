@@ -1,8 +1,11 @@
-﻿namespace Common
+﻿using System.Collections.Generic;
+
+namespace Common
 {
     public interface IReadonlyRepository<out T>
     {
         T Get(int id);
+        IEnumerable<T> GetAll();
     }
 
     public interface IWriteOnlyRepository<in T>

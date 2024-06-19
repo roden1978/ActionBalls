@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelKey: 
   Rows:
-  - {fileID: 0}
-  Difficult: 5
+  - {fileID: 11400000, guid: fc3c31a9c6ea97940bcdcefdc8f079ab, type: 2}
+  - {fileID: 11400000, guid: fc3c31a9c6ea97940bcdcefdc8f079ab, type: 2}
+  - {fileID: 11400000, guid: 57eff8ae74fbba245afd41db0b7323a6, type: 2}
+  Capacity: 5
   TargetScores: 100
+  Ramdomize: 1
+  Circular: 1

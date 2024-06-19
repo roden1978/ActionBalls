@@ -16,9 +16,14 @@ namespace Common
         {
             _repository = new(capacity);
         }
-        public virtual T Get(int id)
+        public T Get(int id)
         {
             return _repository.First(x => x.Index == id);
+        }
+
+        public IEnumerable<T> GetAll()
+        {
+            return _repository;
         }
 
         public void Add(T item)
@@ -40,5 +45,6 @@ namespace Common
         {
             _repository.RemoveAt(id);
         }
+        
     }
 }

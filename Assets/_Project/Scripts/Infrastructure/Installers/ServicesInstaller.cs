@@ -1,5 +1,6 @@
 using Infrastructure;
 using Infrastructure.AssetManagement;
+using Infrastructure.Services;
 using Services.Pool;
 using Services.SaveLoad.PlayerProgress;
 using Services.StaticData;
@@ -16,9 +17,10 @@ public class ServicesInstaller : MonoInstaller
         BindSaveLoadStorage();
         BindSaveLoadService();
         BindSceneLoader();
-        BindPoolService();
+        //BindPoolService();
         BindEventBus();
         BindWallet();
+        BindDeviceInfo();
     }
 
     private void BindAssetProvider()
@@ -28,7 +30,7 @@ public class ServicesInstaller : MonoInstaller
 
     private void BindAssetStorage()
     {
-        Container.BindInterfacesAndSelfTo<PrefabsStorage>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<PrefabsStorage>().AsSingle();
     }
 
     private void BindStaticDataService()
@@ -48,7 +50,7 @@ public class ServicesInstaller : MonoInstaller
 
     private void BindSaveLoadService()
     {
-        Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<SaveLoadService>().AsSingle();
     }
 
     private void BindSceneLoader()
@@ -69,6 +71,11 @@ public class ServicesInstaller : MonoInstaller
     private void BindWallet()
     {
         Container.BindInterfacesAndSelfTo<WalletService>().AsSingle();
+    }
+
+    private void BindDeviceInfo()
+    {
+        Container.Bind<DeviceInfo>().AsSingle();
     }
 
     private void BindAds()
