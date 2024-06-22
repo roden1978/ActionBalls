@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93db826b26064c79ad51c752eb5a4bde, type: 3}
   m_Name: L0001
   m_EditorClassIdentifier: 
-  LevelKey: 
+  LevelKey: L0001
   Rows:
   - {fileID: 11400000, guid: fc3c31a9c6ea97940bcdcefdc8f079ab, type: 2}
   - {fileID: 11400000, guid: fc3c31a9c6ea97940bcdcefdc8f079ab, type: 2}

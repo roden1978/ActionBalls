@@ -74,7 +74,11 @@ public class GameFactory : IInitializable
         Transform parent = hudTransform.gameObject.GetComponent<Hud>().ProgressViewParent;
         GameObject progressView = _container.InstantiatePrefab(prefab, parent);
         _container.Bind<LevelProgressView>().FromComponentOn(progressView).AsSingle();
-        _container.BindInterfacesAndSelfTo<LevelProgress>().FromInstance(new LevelProgress(1000)).AsSingle();
-        _container.Bind<LevelProgressController>().AsSingle();
+        _container.BindInterfacesAndSelfTo<LevelProgressController>().AsSingle();
+    }
+
+    private void CreateBucket()
+    {
+        
     }
 }

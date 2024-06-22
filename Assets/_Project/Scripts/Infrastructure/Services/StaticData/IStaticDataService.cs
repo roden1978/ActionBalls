@@ -1,4 +1,4 @@
-﻿using Infrastructure.Services;
+﻿using System.Collections.Generic;
 using StaticData;
 
 namespace Services.StaticData
@@ -9,5 +9,7 @@ namespace Services.StaticData
         void LoadEnvironmentObjectStaticData();
         LevelStaticData GetLevelStaticData(string levelKey);
         void LoadLevelStaticData();
+        void LoadSoLevelsSet();
+        IEnumerable<string> LevelList { get; }
     }
 }

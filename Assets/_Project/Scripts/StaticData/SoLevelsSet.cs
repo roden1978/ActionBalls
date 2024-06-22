@@ -6,6 +6,8 @@ namespace StaticData
     [CreateAssetMenu(fileName = "New LevelsSet", menuName = "StaticData/LevelsSet")]
     public class SoLevelsSet : ScriptableObject
     {
-        public List<LevelStaticData> LevelsSet;
+        [CustomReadOnly]
+        public string Path;
+        public List<string> LevelsSet;
     }
 }

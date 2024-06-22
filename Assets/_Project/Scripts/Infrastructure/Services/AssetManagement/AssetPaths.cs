@@ -12,6 +12,8 @@
         public const string MenuDialog = "MenuDialog";
         public const string PoolsDataLabel = "Pool";
         public const string GameOverDialog = "GameOverDialog";
+        public const string LevelsPath = "Assets/_Project/Data/LevelsData/_Levels";
+        public const string SoLevelsSetPath = "SoLevelsSet";
 
         /*public const string UILabel = "UIPrefabs";
         public const RoomsType RoomSceneName = RoomsType.Room;

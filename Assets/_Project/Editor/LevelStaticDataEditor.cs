@@ -15,7 +15,7 @@ namespace Editor
         {
             base.OnInspectorGUI();
             LevelStaticData levelData = (LevelStaticData)target;
-            GUILayout.Label("Collecting");
+            levelData.LevelKey = target.name;
 
             var rowsCount = levelData.Capacity < levelData.Rows.Count ? levelData.Capacity : levelData.Rows.Count;
             //if (levelData.Rows.Count <= 2) return;

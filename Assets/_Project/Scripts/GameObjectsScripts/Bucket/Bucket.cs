@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using Common;
 using Infrastructure.Services;
+using Zenject;
 
 namespace GameObjectsScripts
 {
-    public class Bucket
+    public class Bucket : IInitializable
     {
         private const int RowLenght = 5;
         public IEnumerable<Row> Grid => _repository.GetAll();

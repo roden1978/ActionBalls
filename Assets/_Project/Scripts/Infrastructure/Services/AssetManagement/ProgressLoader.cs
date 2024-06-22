@@ -1,4 +1,6 @@
-﻿using Services.StaticData;
+﻿using System.Linq;
+using Services.StaticData;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.AssetManagement
@@ -19,16 +21,17 @@ namespace Infrastructure.AssetManagement
 
         public void Initialize()
         {
-            //LoadStaticData();
+            LoadStaticData();
 
             LoadSettings();
             LoadPlayerProgress();
+            Debug.Log($"Player progress loaded level name {_persistentProgress.PlayerProgress.PlayerState.CurrentLevelName}");
         }
 
         private void LoadStaticData()
         {
-            _staticDataService.LoadEnvironmentObjectStaticData();
-            _staticDataService.LoadLevelStaticData();
+            //_staticDataService.LoadEnvironmentObjectStaticData();
+            _staticDataService.LoadSoLevelsSet();
         }
 
         private void LoadSettings()
@@ -56,7 +59,7 @@ namespace Infrastructure.AssetManagement
             {
                 PlayerState =
                 {
-                    SceneName = AssetPaths.GameSceneName
+                    CurrentLevelName = _staticDataService.LevelList.ElementAt(0)
                 }
             };
 

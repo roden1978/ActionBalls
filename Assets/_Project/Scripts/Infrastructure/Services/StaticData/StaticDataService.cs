@@ -7,35 +7,45 @@ namespace Services.StaticData
 {
     public class StaticDataService : IStaticDataService
     {
+        public IEnumerable<string> LevelList { get; private set; }
+
         private readonly IAssetProvider _assetProvider;
         
         private Dictionary<GameObjectsTypeId, EnvironmentObjectStaticData> _environmentObjectsStaticData;
         private Dictionary<string, LevelStaticData> _scenesStaticData;
+
         public StaticDataService(IAssetProvider assetProvider)
         {
             _assetProvider = assetProvider;
         }
 
-        public async void LoadEnvironmentObjectStaticData()
+        public async void LoadEnvironmentObjectStaticData() //Remove
         {
             IList<EnvironmentObjectStaticData> result =
                 await _assetProvider.LoadAllAsync<EnvironmentObjectStaticData>(AssetPaths.EmptyPath); //AssetPaths.EnvironmentStaticDataLabel
              _environmentObjectsStaticData = result.ToDictionary(x => x.GameObjectsTypeId, x => x);
         }
 
-        public async void LoadLevelStaticData()
+        public async void LoadLevelStaticData()//Remove
         {
             IList<LevelStaticData> result =
                 await _assetProvider.LoadAllAsync<LevelStaticData>(AssetPaths.EmptyPath); //AssetPaths.SceneStaticDataLabel
              _scenesStaticData = result.ToDictionary(x => x.LevelKey, x => x);
         }
+        
+        public async void LoadSoLevelsSet()
+        {
+            SoLevelsSet result =
+                await _assetProvider.LoadAsync<SoLevelsSet>(AssetPaths.SoLevelsSetPath); //AssetPaths.SceneStaticDataLabel
+            LevelList = result.LevelsSet;
+        }
 
       public EnvironmentObjectStaticData GetEnvironmentObjectStaticData(GameObjectsTypeId typeId) =>
             _environmentObjectsStaticData.TryGetValue(typeId, out EnvironmentObjectStaticData pickableObjectStaticData)
                 ? pickableObjectStaticData
-                : null;
+                : null;//Remove
 
-        public LevelStaticData GetLevelStaticData(string levelKey)
+        public LevelStaticData GetLevelStaticData(string levelKey)//Remove
         {
             return _scenesStaticData.TryGetValue(levelKey, out LevelStaticData levelStaticData)
                 ? levelStaticData

@@ -1,4 +1,5 @@
-﻿using UI;
+﻿using GameObjectsScripts;
+using UI;
 using Zenject;
 
 public class GameInstaller : MonoInstaller
@@ -8,10 +9,12 @@ public class GameInstaller : MonoInstaller
         BindInventory();
         BindDialogManager();
         BindPlayer();
+        BindLevelProgress();
+        BindBucket();
         BindGameFactory();
         //BindGameOverDialog();
         //BindLevelProgress();
-     
+
         //BindTimersPrincipal();
         //BindInputNameDialog();
         //BindEgg();
@@ -28,14 +31,25 @@ public class GameInstaller : MonoInstaller
         BindCarpet();
         BindMenuDialog();*/
     }
-    
+
     private void BindInventory()
     {
         Container.BindInterfacesAndSelfTo<Inventory>().AsSingle();
     }
+
     private void BindDialogManager()
     {
         Container.Bind<DialogManager>().AsSingle();
+    }
+
+    private void BindLevelProgress()
+    {
+        Container.BindInterfacesAndSelfTo<LevelProgress>().AsSingle();
+    }
+
+    private void BindBucket()
+    {
+        Container.BindInterfacesAndSelfTo<Bucket>().AsSingle();
     }
 
     private void BindGameFactory()
@@ -77,7 +91,6 @@ public class GameInstaller : MonoInstaller
         _saveLoadStorage.RegisterInSaveLoadRepositories(inventoryNameDialog);
     }*/
 
-    
 
     /*private void BindMealInventoryDialog()
     {
@@ -98,7 +111,7 @@ public class GameInstaller : MonoInstaller
         GameObject toysInventoryDialog = Container.InstantiatePrefab(prefab, _guiHolderTransform);
         Container.BindInterfacesAndSelfTo<ToysInventoryDialog>().FromComponentOn(toysInventoryDialog).AsSingle();
     }*/
-    
+
     /*private void BindMenuDialog()
     {
         GameObject prefab = _prefabsStorage.Get(typeof(MenuDialog));
@@ -106,12 +119,6 @@ public class GameInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<MenuDialog>().FromComponentOn(menuDialog).AsSingle();
     }*/
     
-
-    private void BindBucket()
-    {
-        
-    }
-
     /*private void BindTimersPrincipal()
     {
         Debug.Log($"Instantiate TimersPrincipal start ");
