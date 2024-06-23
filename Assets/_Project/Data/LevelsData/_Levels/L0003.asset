@@ -16,5 +16,5 @@ MonoBehaviour:
   Rows: []
   Capacity: 5
   TargetScores: 200
-  Ramdomize: 1
-  Circular: 1
+  Circular: 0
+  Size: 30

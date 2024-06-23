@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TriInspector;
 using UnityEngine;
 
 namespace StaticData
@@ -14,9 +13,8 @@ namespace StaticData
         public List<RowStaticData> Rows;
         [Range(5, 10)] public int Capacity = 5; // from 5 to 10 cells in row
         public int TargetScores = 100;
-        public bool Ramdomize = true;
-        public bool Circular = true;
-        
+        public bool Circular;
+        [Range(20, 50)] public int Size = 30;
         
 
 

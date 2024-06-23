@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93db826b26064c79ad51c752eb5a4bde, type: 3}
-  m_Name: L0002
+  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
+  m_Name: Levels_ContentUpdateGroupSchema
   m_EditorClassIdentifier: 
-  LevelKey: L0002
-  Rows:
-  - {fileID: 11400000, guid: 57eff8ae74fbba245afd41db0b7323a6, type: 2}
-  Capacity: 5
-  TargetScores: 150
-  Circular: 0
-  Size: 30
+  m_Group: {fileID: 11400000, guid: b6300471cd2c2204eadd0f9b356f0dad, type: 2}
+  m_StaticContent: 0

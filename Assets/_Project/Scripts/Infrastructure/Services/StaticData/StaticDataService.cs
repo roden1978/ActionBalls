@@ -1,56 +1,34 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using Cysharp.Threading.Tasks;
 using Infrastructure.AssetManagement;
 using StaticData;
+using Zenject;
 
 namespace Services.StaticData
 {
-    public class StaticDataService : IStaticDataService
+    public class StaticDataService : IStaticDataService, IInitializable
     {
         public IEnumerable<string> LevelList { get; private set; }
 
         private readonly IAssetProvider _assetProvider;
         
-        private Dictionary<GameObjectsTypeId, EnvironmentObjectStaticData> _environmentObjectsStaticData;
-        private Dictionary<string, LevelStaticData> _scenesStaticData;
-
         public StaticDataService(IAssetProvider assetProvider)
         {
             _assetProvider = assetProvider;
         }
-
-        public async void LoadEnvironmentObjectStaticData() //Remove
-        {
-            IList<EnvironmentObjectStaticData> result =
-                await _assetProvider.LoadAllAsync<EnvironmentObjectStaticData>(AssetPaths.EmptyPath); //AssetPaths.EnvironmentStaticDataLabel
-             _environmentObjectsStaticData = result.ToDictionary(x => x.GameObjectsTypeId, x => x);
-        }
-
-        public async void LoadLevelStaticData()//Remove
-        {
-            IList<LevelStaticData> result =
-                await _assetProvider.LoadAllAsync<LevelStaticData>(AssetPaths.EmptyPath); //AssetPaths.SceneStaticDataLabel
-             _scenesStaticData = result.ToDictionary(x => x.LevelKey, x => x);
-        }
         
-        public async void LoadSoLevelsSet()
+        private async UniTask<SoLevelsSet> LoadSoLevelsSet()
         {
-            SoLevelsSet result =
-                await _assetProvider.LoadAsync<SoLevelsSet>(AssetPaths.SoLevelsSetPath); //AssetPaths.SceneStaticDataLabel
+            UniTask<SoLevelsSet> task = _assetProvider.LoadAsync<SoLevelsSet>(AssetPaths.SoLevelsSetPath);
+            if (task.Status == UniTaskStatus.Pending)
+                await UniTask.Yield();
+            return await task;
+        }
+
+        public async void Initialize()
+        {
+            SoLevelsSet result = await LoadSoLevelsSet();
             LevelList = result.LevelsSet;
         }
-
-      public EnvironmentObjectStaticData GetEnvironmentObjectStaticData(GameObjectsTypeId typeId) =>
-            _environmentObjectsStaticData.TryGetValue(typeId, out EnvironmentObjectStaticData pickableObjectStaticData)
-                ? pickableObjectStaticData
-                : null;//Remove
-
-        public LevelStaticData GetLevelStaticData(string levelKey)//Remove
-        {
-            return _scenesStaticData.TryGetValue(levelKey, out LevelStaticData levelStaticData)
-                ? levelStaticData
-                : null;
-        }
-        
     }
 }

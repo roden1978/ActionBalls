@@ -21,17 +21,9 @@ namespace Infrastructure.AssetManagement
 
         public void Initialize()
         {
-            LoadStaticData();
-
             LoadSettings();
             LoadPlayerProgress();
             Debug.Log($"Player progress loaded level name {_persistentProgress.PlayerProgress.PlayerState.CurrentLevelName}");
-        }
-
-        private void LoadStaticData()
-        {
-            //_staticDataService.LoadEnvironmentObjectStaticData();
-            _staticDataService.LoadSoLevelsSet();
         }
 
         private void LoadSettings()
@@ -59,7 +51,7 @@ namespace Infrastructure.AssetManagement
             {
                 PlayerState =
                 {
-                    CurrentLevelName = _staticDataService.LevelList.ElementAt(0)
+                    CurrentLevelName = string.Empty
                 }
             };
 

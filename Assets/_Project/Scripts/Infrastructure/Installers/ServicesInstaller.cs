@@ -1,3 +1,4 @@
+using GameObjectsScripts.Levels;
 using Infrastructure;
 using Infrastructure.AssetManagement;
 using Infrastructure.Services;
@@ -21,6 +22,8 @@ public class ServicesInstaller : MonoInstaller
         BindEventBus();
         BindWallet();
         BindDeviceInfo();
+        BindAssetLoader();
+        BindLevels();
     }
 
     private void BindAssetProvider()
@@ -76,6 +79,16 @@ public class ServicesInstaller : MonoInstaller
     private void BindDeviceInfo()
     {
         Container.Bind<DeviceInfo>().AsSingle();
+    }
+    
+    private void BindAssetLoader()
+    {
+        Container.BindInterfacesAndSelfTo<ProgressLoader>().AsSingle();
+    }
+
+    private void BindLevels()
+    {
+        Container.Bind<Levels>().AsSingle();
     }
 
     private void BindAds()
