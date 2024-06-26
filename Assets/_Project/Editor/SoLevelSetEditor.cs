@@ -28,7 +28,7 @@ namespace Editor
                 {
                     IEnumerable<RowStaticData> rows;
                     var item = AssetDatabase.LoadAssetAtPath<LevelStaticData>(AssetDatabase.GUIDToAssetPath(guid));
-                    if(item.Circular == false && item.Rows.Count > item.Capacity)
+                    //if(item.Circular == false && item.Rows.Count > item.Capacity)
                         
                     _levels.LevelsSet.Add(new LevelData
                     {
