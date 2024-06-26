@@ -27,6 +27,7 @@ namespace Infrastructure.AssetManagement
             
             LoadPrefabs(AssetPaths.UILabel);
             LoadPrefab(typeof(ProgressUpdater), AssetPaths.ProgressUpdater);
+            LoadPrefab(typeof(BucketView), AssetPaths.BucketView);
         }
 
 

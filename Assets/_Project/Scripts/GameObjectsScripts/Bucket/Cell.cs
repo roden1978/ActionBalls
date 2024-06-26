@@ -7,13 +7,13 @@ namespace GameObjectsScripts
     {
         public event Action<int> IndexChanged; 
         public int Index { get; private set; }
-        public bool isEmpty => _cellData.BallType == BallType.None;
+        public bool isEmpty => _ball == null;
         
-        private readonly CellData _cellData;
-        public Cell(int id, CellData cellData)
+        private readonly Ball _ball;
+        public Cell(int id, Ball ball = null)
         {
             Index = id;
-            _cellData = cellData;
+            _ball = ball;
         }
 
         public void UpdateIndex(int newIndex)
@@ -22,6 +22,6 @@ namespace GameObjectsScripts
             IndexChanged?.Invoke(newIndex);
         }
 
-        public IReadOnlyBall ReadOnlyBall { get; }
+        public IReadOnlyBall ReadOnlyBall => _ball;
     }
 }

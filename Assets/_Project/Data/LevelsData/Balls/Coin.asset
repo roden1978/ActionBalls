@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3c29e202404310b18d0ac3fd15829d, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
-  BallType: 5
+  BallType: Coin
   Icon: {fileID: 21300000, guid: 7742c48bcbf0d9e41b2ba919f50ca9e3, type: 3}
+  BallState:
+    Hp: 1
+    MaxHp: 1

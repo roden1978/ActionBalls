@@ -1,6 +1,7 @@
-using GameObjectsScripts.Levels;
+using GameObjectsScripts;
 using Infrastructure;
 using Infrastructure.AssetManagement;
+using Infrastructure.Factories;
 using Infrastructure.Services;
 using Services.Pool;
 using Services.SaveLoad.PlayerProgress;
@@ -24,6 +25,7 @@ public class ServicesInstaller : MonoInstaller
         BindDeviceInfo();
         BindAssetLoader();
         BindLevels();
+        BindBallFactory();
     }
 
     private void BindAssetProvider()
@@ -78,7 +80,7 @@ public class ServicesInstaller : MonoInstaller
 
     private void BindDeviceInfo()
     {
-        Container.Bind<DeviceInfo>().AsSingle();
+        Container.BindInterfacesAndSelfTo<DeviceInfo>().AsSingle();
     }
     
     private void BindAssetLoader()
@@ -88,7 +90,12 @@ public class ServicesInstaller : MonoInstaller
 
     private void BindLevels()
     {
-        Container.Bind<Levels>().AsSingle();
+        Container.Bind<LevelsController>().AsSingle();
+    }
+
+    private void BindBallFactory()
+    {
+        Container.Bind<BallFactory>().AsSingle();
     }
 
     private void BindAds()

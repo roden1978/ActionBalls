@@ -14,6 +14,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Assets/_Project/Data/LevelsData/_Levels
   LevelsSet:
-  - L0001
-  - L0002
-  - L0003
+  - Capacity: 5
+    RowsData:
+    - Bomb|None|None|Bomb|Bomb
+    - Bomb|None|None|Bomb|Bomb
+    - Basic|Basic|Basic|Basic|Basic
+    TargetScores: 100
+    Circular: 0
+    UniqueTypes: Bomb|Basic
+  - Capacity: 5
+    RowsData:
+    - Basic|Basic|Basic|Basic|Basic
+    TargetScores: 150
+    Circular: 0
+    UniqueTypes: Basic
+  - Capacity: 5
+    RowsData: []
+    TargetScores: 200
+    Circular: 0
+    UniqueTypes: 
+  - Capacity: 5
+    RowsData:
+    - Bomb|None|None|Bomb|Bomb
+    - Bomb|None|None|Bomb|Bomb
+    - Basic|Basic|Basic|Basic|Basic
+    - Basic|Basic|Basic|Basic|Basic
+    - Toxic|Toxic|Toxic|Toxic|Toxic
+    - Basic|Basic|Basic|Basic|Basic
+    - Basic|Basic|Basic|Basic|Basic
+    - Bomb|None|None|Bomb|Bomb
+    - Toxic|Toxic|Toxic|Toxic|Toxic
+    - Basic|Basic|Basic|Basic|Basic
+    - Basic|Basic|Basic|Basic|Basic
+    - Toxic|Toxic|Toxic|Toxic|Toxic
+    - Basic|Basic|Basic|Basic|Basic
+    - Toxic|Toxic|Toxic|Toxic|Toxic
+    - Basic|Basic|Basic|Basic|Basic
+    - Basic|Basic|Basic|Basic|Basic
+    - Bomb|None|None|Bomb|Bomb
+    - Basic|Basic|Basic|Basic|Basic
+    - Bomb|None|None|Bomb|Bomb
+    - Basic|Basic|Basic|Basic|Basic
+    - Bomb|None|None|Bomb|Bomb
+    TargetScores: 100
+    Circular: 1
+    UniqueTypes: Bomb|Basic|Toxic
+  - Capacity: 5
+    RowsData:
+    - Bomb|None|None|Bomb|Bomb
+    - Bomb|None|None|Bomb|Bomb
+    - Basic|Basic|Basic|Basic|Basic
+    - Basic|Basic|Basic|Basic|Basic
+    - Toxic|Toxic|Toxic|Toxic|Toxic
+    - Basic|Basic|Basic|Basic|Basic
+    - Basic|Basic|Basic|Basic|Basic
+    - Bomb|None|None|Bomb|Bomb
+    - Toxic|Toxic|Toxic|Toxic|Toxic
+    - Basic|Basic|Basic|Basic|Basic
+    - Basic|Basic|Basic|Basic|Basic
+    - Toxic|Toxic|Toxic|Toxic|Toxic
+    - Basic|Basic|Basic|Basic|Basic
+    - Toxic|Toxic|Toxic|Toxic|Toxic
+    - Basic|Basic|Basic|Basic|Basic
+    - Basic|Basic|Basic|Basic|Basic
+    - Bomb|None|None|Bomb|Bomb
+    - Basic|Basic|Basic|Basic|Basic
+    - Bomb|None|None|Bomb|Bomb
+    - Basic|Basic|Basic|Basic|Basic
+    - Bomb|None|None|Bomb|Bomb
+    TargetScores: 100
+    Circular: 0
+    UniqueTypes: Bomb|Basic|Toxic

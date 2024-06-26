@@ -12,7 +12,7 @@ namespace Editor
     {
         private const int CapacityMinValue = 5;
         private const int CapacityMaxValue = 10;
-        private BallType _type;
+        private string _type;
         private readonly string _ballAssetsPath = string.Empty;
         private string _name = string.Empty;
         private Sprite _icon;
@@ -168,7 +168,7 @@ namespace Editor
             if(_balls.Count < _capacityInput.value)
             {
                 var ballType = _dropdown.value;
-                _balls.Add(_allObjects.Find(x => x.BallType == EnumUtils.ParseEnum<BallType>(ballType)));
+                _balls.Add(_allObjects.Find(x => x.BallType == ballType));
                 Debug.Log("Ball was added");
             }
         }

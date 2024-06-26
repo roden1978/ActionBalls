@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3c29e202404310b18d0ac3fd15829d, type: 3}
   m_Name: Basic
   m_EditorClassIdentifier: 
-  BallType: 1
+  BallType: Basic
   Icon: {fileID: 21300000, guid: 90da2592c9a144e498155d5ec5a0b9bd, type: 3}
+  BallState:
+    Hp: 1
+    MaxHp: 1

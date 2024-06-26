@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using GameObjectsScripts;
 using UnityEngine;
 
 namespace StaticData
@@ -8,6 +9,6 @@ namespace StaticData
     {
         [CustomReadOnly]
         public string Path;
-        public List<string> LevelsSet;
+        public List<LevelData> LevelsSet;
     }
 }

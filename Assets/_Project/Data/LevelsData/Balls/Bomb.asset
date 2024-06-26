@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc3c29e202404310b18d0ac3fd15829d, type: 3}
   m_Name: Bomb
   m_EditorClassIdentifier: 
-  BallType: 3
+  BallType: Bomb
   Icon: {fileID: 21300000, guid: 0c7dbc41d8185df4d926fdfdc8123fbf, type: 3}
+  BallState:
+    Hp: 1
+    MaxHp: 1

@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5834b5087d578d24c926ce20cd31e6d6, type: 3}
-  m_Name: BallsSo_ContentUpdateGroupSchema
+  m_Script: {fileID: 11500000, guid: bc3c29e202404310b18d0ac3fd15829d, type: 3}
+  m_Name: Piggybank
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 463076ac50a93ff4d8650bd32e49122a, type: 2}
-  m_StaticContent: 0
+  BallType: Piggybank
+  Icon: {fileID: 21300000, guid: 76aeb3504c995964ab3e236a7892596b, type: 3}
+  BallState:
+    Hp: 1
+    MaxHp: 1

@@ -1,21 +1,25 @@
-﻿using UnityEngine.Device;
+﻿using UnityEngine;
 using Zenject;
+using Screen = UnityEngine.Device.Screen;
 
 namespace Infrastructure.Services
 {
     public class DeviceInfo : IInitializable
     {
         public DeviceData DeviceData => _deviceData;
-        private readonly DeviceData _deviceData;
-
-        public DeviceInfo()
-        {
-            _deviceData = new DeviceData();
-        }
+        private DeviceData _deviceData;
+        private const int PlayerAreaHeight = 200; 
+        
         public void Initialize()
         {
-            _deviceData.ScreenWidth = Screen.width;
-            _deviceData.ScreenHeight = Screen.height;
+            _deviceData = new DeviceData
+            {
+                ScreenWidth = Screen.width,
+                ScreenHeight = Screen.height,
+                PlayerAreaHeight = PlayerAreaHeight
+            };
+            
+            Debug.Log(_deviceData.ToString());
         }
 
     }
@@ -24,6 +28,12 @@ namespace Infrastructure.Services
     {
         public int ScreenWidth;
         public int ScreenHeight;
+        public int PlayerAreaHeight;
+
+        public override string ToString()
+        {
+            return $"Width: {ScreenWidth}, height: {ScreenHeight}, player area: {PlayerAreaHeight}";
+        }
     }
 
 }

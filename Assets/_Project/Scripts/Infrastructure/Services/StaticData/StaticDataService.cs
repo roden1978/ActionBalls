@@ -28,7 +28,7 @@ namespace Services.StaticData
         public async void Initialize()
         {
             SoLevelsSet result = await LoadSoLevelsSet();
-            LevelList = result.LevelsSet;
+            //LevelList = result.LevelsSet;
         }
     }
 }

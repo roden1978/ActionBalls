@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using UnityEngine;
+using Zenject;
 
 public class LevelProgressController : IInitializable
 {
@@ -13,6 +14,7 @@ public class LevelProgressController : IInitializable
 
     public void Initialize()
     {
+        Debug.Log($"Initialize Level progress controller");
         _levelProgress.UpdateLevelProgress += OnUpdateLevelProgress;
         _levelProgressView.DestroyLevelProgressView += Dispose;
     }

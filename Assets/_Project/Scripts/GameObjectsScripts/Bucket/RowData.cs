@@ -6,6 +6,6 @@ namespace GameObjectsScripts
     public class RowData
     {
         public int Capacity;
-        public List<BallType> Balls;
+        public List<string> Balls;
     }
 }

@@ -1,6 +1,5 @@
-﻿using System;
-using System.Linq;
-using GameObjectsScripts.Levels;
+﻿using System.Linq;
+using GameObjectsScripts;
 using Services.SaveLoad.PlayerProgress;
 using Services.StaticData;
 using StaticData;
@@ -17,11 +16,11 @@ public class MainMenuFactory : IInitializable
     private readonly IWalletService _wallet;
     private readonly DiContainer _container;
     private readonly IPersistentProgress _persistentProgress;
-    private readonly Levels _levels;
+    private readonly LevelsController _levels;
     private readonly IStaticDataService _staticDataService;
 
     public MainMenuFactory(DiContainer container, PrefabsStorage prefabsStorage, ISaveLoadStorage saveLoadStorage,
-        IWalletService wallet, Levels levels, IPersistentProgress persistentProgress,
+        IWalletService wallet, LevelsController levels, IPersistentProgress persistentProgress,
         IStaticDataService staticDataService)
     {
         _container = container;

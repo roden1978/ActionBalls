@@ -1,6 +1,7 @@
 ﻿using System;
 using Common;
 using Data;
+using StaticData;
 
 namespace GameObjectsScripts
 {
@@ -16,6 +17,8 @@ namespace GameObjectsScripts
                 HpChange?.Invoke(value);
             }
         }
+
+        public string BallType => _ballData.BallType;
 
         private readonly BallData _ballData;
         public Ball(BallData ballData)

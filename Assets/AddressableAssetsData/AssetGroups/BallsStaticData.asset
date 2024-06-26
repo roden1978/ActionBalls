@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BallsStaticData
+  m_EditorClassIdentifier: 
+  m_GroupName: BallsStaticData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ecfa8ed3adf59d847954fbbfab79ceda
+  m_SerializeEntries:
+  - m_GUID: cd8dd4e18e1e7e347895c7f64bca28a8
+    m_Address: Assets/_Project/Data/LevelsData/Balls
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: e0b7ad024c2d0b7438fea47d8648421f, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 112e1ce2d0e99964fb591968bc8d2a75, type: 2}
+    - {fileID: 11400000, guid: b6476137dd9397b48bcbf0afa78bd369, type: 2}

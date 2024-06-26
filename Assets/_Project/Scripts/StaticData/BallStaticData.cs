@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using Data;
+using UnityEngine;
 
 namespace StaticData
 {
     [CreateAssetMenu(fileName = "New BallStaticData", menuName = "StaticData/BallStaticData")]
     public class BallStaticData : ScriptableObject
     {
-        public BallType BallType;
+        [CustomReadOnly]
+        public string BallType;
         public Sprite Icon;
+        public BallState BallState;
     }
 }

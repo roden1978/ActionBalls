@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Common;
 
 namespace GameObjectsScripts
@@ -7,15 +8,14 @@ namespace GameObjectsScripts
     {
         public Position Position { get; set; }
         public int Index { get; private set; }
+        public int Capacity { get; }
         public event Action<int> IndexChanged;
-        public int Capacity => _rowData.Capacity;
-        private readonly RowData _rowData;
         private readonly IRepository<Cell> _repository;
-        public Row(int id, RowData rowData)
+        public Row(int id, int capacity)
         {
             Index = id;
-            _rowData = rowData;
-            _repository = new Repository<Cell>(_rowData.Capacity);
+            Capacity = capacity;
+            _repository = new Repository<Cell>(capacity);
         }
 
         public void AddCell(Cell cell)
@@ -34,6 +34,10 @@ namespace GameObjectsScripts
             IndexChanged?.Invoke(newIndex);
         }
 
+        public override string ToString()
+        {
+            return String.Join(", ", _repository.GetAll().Select(x=> x.ReadOnlyBall));
+        }
     }
 
     public struct Position

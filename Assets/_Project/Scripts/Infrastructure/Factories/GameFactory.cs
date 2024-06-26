@@ -1,4 +1,5 @@
-﻿using Services.SaveLoad.PlayerProgress;
+﻿using GameObjectsScripts;
+using Services.SaveLoad.PlayerProgress;
 using Services.StaticData;
 using StaticData;
 using UnityEngine;
@@ -24,8 +25,6 @@ public class GameFactory : IInitializable
         _staticDataService = staticDataService;
         _persistenceProgress = persistentProgress;
         _wallet = wallet;
-
-        //_levelStaticData = _staticDataService.GetLevelStaticData(AssetPaths.RoomSceneName.ToString());
     }
     public void Initialize()
     {
@@ -36,6 +35,7 @@ public class GameFactory : IInitializable
         var hudTransform = CreateHud(guiHolder);
         CreateGameOverDialog(guiHolder);
         CreateLevelProgress(hudTransform);
+        CreateBucket();
     }
     
     private void RegisterWallet()
@@ -75,10 +75,16 @@ public class GameFactory : IInitializable
         GameObject progressView = _container.InstantiatePrefab(prefab, parent);
         _container.Bind<LevelProgressView>().FromComponentOn(progressView).AsSingle();
         _container.BindInterfacesAndSelfTo<LevelProgressController>().AsSingle();
+        _container.Resolve<LevelProgressController>().Initialize();
     }
 
     private void CreateBucket()
     {
-        
+        Debug.Log($"Instantiate Bucket ");
+        GameObject prefab = _prefabsStorage.Get(typeof(BucketView));
+        GameObject bucketView = _container.InstantiatePrefab(prefab);
+        _container.Bind<BucketView>().FromComponentOn(bucketView).AsSingle();
+        _container.BindInterfacesAndSelfTo<BucketController>().AsSingle();
+        _container.Resolve<BucketController>().Initialize();
     }
 }
