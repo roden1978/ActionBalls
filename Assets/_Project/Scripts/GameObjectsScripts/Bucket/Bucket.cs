@@ -96,7 +96,7 @@ namespace GameObjectsScripts
             var width = _deviceInfo.DeviceData.ScreenWidth;
             var height = _deviceInfo.DeviceData.ScreenHeight - _deviceInfo.DeviceData.PlayerAreaHeight;
 
-            return height / (width / _levelsController.CurrentLevelData.Capacity) + 1;
+            return 8; //height / (width / _levelsController.CurrentLevelData.Capacity) + 1;
         }
 
         private void GenerateGrid(int width, int height)

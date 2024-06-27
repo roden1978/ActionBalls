@@ -64,8 +64,8 @@ public class MainMenuFactory : IInitializable
 
     private void PrepareLevel()
     {
-        _levels.LoadLevel(_persistentProgress.PlayerProgress.PlayerState.CurrentLevelName == string.Empty
+        /*_levels.LoadLevel(_persistentProgress.PlayerProgress.PlayerState.CurrentLevelName == string.Empty
             ? _staticDataService.LevelList.ElementAt(0)
-            : _persistentProgress.PlayerProgress.PlayerState.CurrentLevelName);
+            : _persistentProgress.PlayerProgress.PlayerState.CurrentLevelName);*/
     }
 }
