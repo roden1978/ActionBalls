@@ -17,6 +17,7 @@
         public const string BallsStaticDataPath = "Assets/_Project/Data/LevelsData/Balls";
         public const string BallsTypesListPath = "Assets/_Project/Data/LevelsData";
         public const string SoLevelsSetPath = "SoLevelsSet";
+        public const string Cueball = "Cueball";
 
     }
 }
