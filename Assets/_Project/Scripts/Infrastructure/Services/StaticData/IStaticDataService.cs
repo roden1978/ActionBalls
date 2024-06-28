@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using StaticData;
 
 namespace Services.StaticData
 {
     public interface IStaticDataService
     {
-        IEnumerable<string> LevelList { get; }
+        UniTask<SoLevelsSet> LoadSoLevelsSet();
     }
 }

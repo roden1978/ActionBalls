@@ -90,7 +90,7 @@ public class ServicesInstaller : MonoInstaller
 
     private void BindLevels()
     {
-        Container.Bind<LevelsController>().AsSingle();
+        Container.BindInterfacesAndSelfTo<LevelsController>().AsSingle();
     }
 
     private void BindBallFactory()

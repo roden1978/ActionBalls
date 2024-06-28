@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GameObjectsScripts;
 using Infrastructure.AssetManagement;
@@ -22,25 +23,29 @@ namespace Editor
             {
                 _levels.LevelsSet.Clear();
 
-                var allObjectGuids =
+                string[] allObjectGuids =
                     AssetDatabase.FindAssets("t:Object", new[] { _levels.Path });
-                foreach (var guid in allObjectGuids)
+                foreach (string guid in allObjectGuids)
                 {
                     IEnumerable<RowStaticData> rows;
-                    var item = AssetDatabase.LoadAssetAtPath<LevelStaticData>(AssetDatabase.GUIDToAssetPath(guid));
-                    //if(item.Circular == false && item.Rows.Count > item.Capacity)
-                        
-                    _levels.LevelsSet.Add(new LevelData
-                    {
-                        Capacity = item.Capacity,
-                        RowsData = item.Rows.Select(x =>
+                    
+                    LevelStaticData item = AssetDatabase.LoadAssetAtPath<LevelStaticData>(AssetDatabase.GUIDToAssetPath(guid));
+                    if (item.Circular == false && item.Rows.Count > item.Capacity)
+                        rows = item.Rows.Take(item.Capacity);
+                    else
+                        rows = item.Rows;
+                    
+                    IEnumerable<RowStaticData> rowStaticData = rows as RowStaticData[] ?? rows.ToArray();
+
+                    _levels.LevelsSet.Add(new LevelData($"{item.LevelKey}|{int.Parse(item.LevelKey.Split("L")[1])}",
+                        item.Capacity,
+                        rowStaticData.Select(x =>
                             string.Join("|", x.Balls.Select(z => z == null ? "None" : z.BallType))).ToList(),
-                        TargetScores = item.TargetScores,
-                        Circular = item.Circular,
-                        UniqueTypes = GetUniqueTypes(item.Rows),
-
-                    });
-
+                        item.TargetScores,
+                        item.Circular,
+                        GetUniqueTypes(rowStaticData))
+                    );
+                    
                     Debug.Log($"Guid : {guid} name: {item.name}");
                 }
             }

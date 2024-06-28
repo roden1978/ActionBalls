@@ -2,14 +2,11 @@
 using Cysharp.Threading.Tasks;
 using Infrastructure.AssetManagement;
 using StaticData;
-using Zenject;
 
 namespace Services.StaticData
 {
-    public class StaticDataService : IStaticDataService, IInitializable
+    public class StaticDataService : IStaticDataService
     {
-        public IEnumerable<string> LevelList { get; private set; }
-
         private readonly IAssetProvider _assetProvider;
         
         public StaticDataService(IAssetProvider assetProvider)
@@ -17,18 +14,14 @@ namespace Services.StaticData
             _assetProvider = assetProvider;
         }
         
-        private async UniTask<SoLevelsSet> LoadSoLevelsSet()
+        public async UniTask<SoLevelsSet> LoadSoLevelsSet()
         {
             UniTask<SoLevelsSet> task = _assetProvider.LoadAsync<SoLevelsSet>(AssetPaths.SoLevelsSetPath);
             if (task.Status == UniTaskStatus.Pending)
                 await UniTask.Yield();
+            _assetProvider.ReleaseAssetsByLabel(AssetPaths.LevelsPath);
             return await task;
         }
-
-        public async void Initialize()
-        {
-            SoLevelsSet result = await LoadSoLevelsSet();
-            //LevelList = result.LevelsSet;
-        }
+        
     }
 }

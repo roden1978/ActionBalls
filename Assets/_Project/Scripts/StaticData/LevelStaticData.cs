@@ -15,17 +15,6 @@ namespace StaticData
         public int TargetScores = 100;
         public bool Circular;
         [Range(20, 50)] public int Size = 30;
-        
-
-
-        /*public EnvironmentObjectSpawnData GetEnvironmentObjectSpawnDataByTypeId(GameObjectsTypeId typeId)
-        {
-            return EnvironmentObjectsSpawnData.Find(x => x.GameObjectsTypeId == typeId);
-        }
-
-        public StuffSpawnData GetStuffSpawnDataBySpecies(StuffSpecies species)
-        {
-            return StuffSpawnData.Find(x => x.StuffSpecies == species);
-        }*/
+     
     }
 }

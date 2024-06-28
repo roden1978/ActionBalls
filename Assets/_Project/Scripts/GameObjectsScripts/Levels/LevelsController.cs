@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Data;
-using Infrastructure.AssetManagement;
+﻿using System;
+using System.Collections.Generic;
+using Common;
+using Services.StaticData;
 using StaticData;
 using UnityEngine;
 using Zenject;
@@ -11,37 +11,52 @@ namespace GameObjectsScripts
     public class LevelsController : IInitializable
     {
         public LevelData CurrentLevelData { get; private set; }
-        private List<LevelData> _levels;
-        private readonly IAssetProvider _assetProvider;
+        private readonly Repository<LevelData> _levels = new();
+        private readonly IStaticDataService _staticDataService;
 
-        public LevelsController(IAssetProvider assetProvider)
+        public LevelsController(IStaticDataService staticDataService)
         {
-            _assetProvider = assetProvider;
+            _staticDataService = staticDataService;
         }
 
         public void Initialize()
         {
-            
+            LoadLevels();
         }
 
-        public async void LoadLevel(string levelKey)
+        public LevelData GetLevelByIndex(int index)
         {
-            string key = $"{AssetPaths.LevelsPath}/{levelKey}.asset";
-            LevelStaticData asset = await _assetProvider.LoadAsync<LevelStaticData>(key);
-            //CurrentLevelData = Map(asset);
-            _assetProvider.ReleaseAssetsByLabel(key);
+            return _levels.Get(index);
+        }
+
+        public void SetCurrentLevel(string levelKey)
+        {
+            CurrentLevelData = _levels.Get(Int32.Parse(levelKey.Split("|")[1]));
+        }
+
+        public void SetCurrentLevelById(int id)
+        {
+            CurrentLevelData = _levels.Get(id);
+        }
+
+        private async void LoadLevels()
+        {
+            SoLevelsSet asset = await _staticDataService.LoadSoLevelsSet();
+            Map(asset.LevelsSet);
+
             Debug.Log($"Name: {asset.name}");
         }
 
-        /*private LevelData Map(LevelStaticData data)
+        private void Map(IEnumerable<LevelData> data)
         {
-            return new LevelData
+            foreach (var level in data)
             {
-                Capacity = data.Capacity,
-                RowsData = data.Rows.Select(x => x.Balls.Select(z => z == null ? BallType.None : z.BallType)),
-                TargetScores = data.TargetScores,
-                Circular = data.Circular
-            };
-        }*/
+                LevelData levelData = new (level.LevelKey, level.Capacity, level.RowsData, level.TargetScores,
+                    level.Circular, level.UniqueTypes);
+                levelData.AddIndex(int.Parse(level.LevelKey.Split("|")[1]));
+                _levels.Add(levelData);
+            }
+        }
+        
     }
 }
